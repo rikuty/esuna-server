@@ -10,6 +10,7 @@ composerもインストールその後以下を実行しパッケージを入れ
 
 `$ composer install`
 
+## 環境変数の利用について
 .env.sampleをコピーし.envのファイルをアプリケーション直下に作成
 ```
 # db 設定
@@ -21,8 +22,19 @@ DB_PORT="DB ポート"
 
 ```
 
-本番は ./scripts/after_install.sh で環境変数を自動セット(aws systems manager を用いてます)
-本番は `prod`.パラメータ で systems manager側でセットすれば用いる
+実行するには以下を記述が必要
+```php
+require './vendor/autoload.php';
+use  josegonzalez\Dotenv\Loader as Dotenv;
+Dotenv::load([
+    'filepath' =>  './.env',
+    'toEnv' => true
+]);
+```
+
+本番は ./scripts/after_install.sh で環境変数を自動化(aws systems manager を用いてます) `prod`.パラメータ で systems manager側でセットすれば用いる
+
+
 
 # デプロイ
 codedeployを使用
