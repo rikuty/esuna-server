@@ -23,7 +23,6 @@ echo "DB_PASS=\"$(aws --region ${REGION} ssm get-parameters --name ${APP_ENV}.db
 echo "DB_NAME=\"$(aws --region ${REGION} ssm get-parameters --name ${APP_ENV}.db_name --query "Parameters[0].Value" --output text)\"" >> ./scripts/actions/.env
 echo "DB_PORT=\"$(aws --region ${REGION} ssm get-parameters --name ${APP_ENV}.db_port --query "Parameters[0].Value" --output text)\"" >> ./scripts/actions/.env
 
-echo "DB_TEST=\"test\"" >> ./scripts/actions/.env
 
 cp ./scripts/actions/.env ./.env
 
