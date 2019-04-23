@@ -8,7 +8,7 @@ Dotenv::load([
 ]);
 
 
-echo "Hello world";
+echo "Hello world...";
 try {
 
     /* リクエストから得たスーパーグローバル変数をチェックするなどの処理 */
