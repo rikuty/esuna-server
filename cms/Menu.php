@@ -29,7 +29,7 @@ if($user_id != $password){
 <div align="left"><a href="http://dev.rikuty.net/cms/Top.php">Top</a></div>
 
 <br>
-<a href="http://rikuty.main.jp/test/cms/ActiveSetting.php">アクティブユーザー設定</a><br>
+<a href="http://dev.rikuty.net/cms/ActiveSetting.php">アクティブユーザー設定</a><br>
 <a href="">プリント設定（仮）</a><br>
 <a href="">その他設定</a><br>
 <a href="">その他設定</a><br>
