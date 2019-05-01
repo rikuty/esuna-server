@@ -1,9 +1,42 @@
 <?php
-define('SERVER_URL', 'localhost');
-define('USER_NAME', 'root');
-define('USER_PASS', 'Rikuty_0605');
-define('DB_NAME', 'db_pain_vr');
+require './../vendor/autoload.php';
+use  josegonzalez\Dotenv\Loader as Dotenv;
+Dotenv::load([
+    'filepath' =>  './../.env',
+    'toEnv' => true
+]);
 
-define('MIN_POSITION_ID', 200);
-define('MAX_POSITION_ID', 250);
+$pdo;
+
+try {
+
+    /* リクエストから得たスーパーグローバル変数をチェックするなどの処理 */
+
+    // データベースに接続
+    $db_host=$_ENV['DB_HOST'];
+    $db_name= $_ENV['DB_NAME'];
+    $db_port=$_ENV['DB_PORT'];
+    $db_user=$_ENV['DB_USER'];
+    $db_pass=$_ENV['DB_PASS'];
+    $pdo = new PDO(
+        "mysql:dbname={$db_name};host={$db_host};charset=utf8mb4",
+        $db_user,
+        $db_pass,
+        [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        ]
+    );
+
+    /* データベースから値を取ってきたり， データを挿入したりする処理 */
+
+} catch (PDOException $e) {
+
+    // エラーが発生した場合は「500 Internal Server Error」でテキストとして表示して終了する
+    // - もし手抜きしたくない場合は普通にHTMLの表示を継続する
+    // - ここではエラー内容を表示しているが， 実際の商用環境ではログファイルに記録して， Webブラウザには出さないほうが望ましい
+    header('Content-Type: text/plain; charset=UTF-8', true, 500);
+    exit($e->getMessage());
+
+}
 ?>

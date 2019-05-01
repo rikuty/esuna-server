@@ -21,6 +21,7 @@ if ($result = $mysqli->query($sql)) {
 $mysqli->close();
 */
 
+/*
 require './../vendor/autoload.php';
 use  josegonzalez\Dotenv\Loader as Dotenv;
 Dotenv::load([
@@ -30,7 +31,7 @@ Dotenv::load([
 
 try {
 
-    /* リクエストから得たスーパーグローバル変数をチェックするなどの処理 */
+    // リクエストから得たスーパーグローバル変数をチェックするなどの処理 
 
     // データベースに接続
     $db_host=$_ENV['DB_HOST'];
@@ -48,7 +49,7 @@ try {
         ]
     );
 
-    /* データベースから値を取ってきたり， データを挿入したりする処理 */
+    // データベースから値を取ってきたり， データを挿入したりする処理 
 
 } catch (PDOException $e) {
 
@@ -59,6 +60,8 @@ try {
     exit($e->getMessage());
 
 }
+*/
+require './../common/conf.php';
 
 $stmt = $pdo->query("SELECT user_id, CONCAT(last_name, first_name) as name FROM u_user");
 while($row = $stmt -> fetch(PDO::FETCH_ASSOC)) {
