@@ -21,7 +21,7 @@ if ($result = $mysqli->query($sql)) {
 $mysqli->close();
 */
 
-require './vendor/autoload.php';
+require './../vendor/autoload.php';
 use  josegonzalez\Dotenv\Loader as Dotenv;
 Dotenv::load([
     'filepath' =>  './.env',
