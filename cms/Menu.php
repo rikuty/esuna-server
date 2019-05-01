@@ -1,15 +1,7 @@
 <?php
 
-require_once("../common/conf.php");
-/*
-$link = mysqli_connect(SERVER_URL, USER_NAME, USER_PASS, DB_NAME);
+require_once("./../common/conf.php");
 
-if (mysqli_connect_errno()) {
-    die("Cannot conect:" . mysqli_connect_error() . "\n");
-} else {
-    //echo "Success\n";
-}
-*/
 $page_title = '管理画面[メニュー]';
 
 // ログイン判定

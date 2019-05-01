@@ -1,15 +1,6 @@
 <?php
 
-require_once("../common/conf.php");
-/*
-$link = mysqli_connect(SERVER_URL, USER_NAME, USER_PASS, DB_NAME);
-
-if (mysqli_connect_errno()) {
-    die("Cannot conect:" . mysqli_connect_error() . "\n");
-} else {
-    //echo "Success\n";
-}
-*/
+require_once("./../common/conf.php");
 
 $page_title = '管理画面[アクティブユーザー設定]';
 
