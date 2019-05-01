@@ -24,7 +24,7 @@ $mysqli->close();
 require './../vendor/autoload.php';
 use  josegonzalez\Dotenv\Loader as Dotenv;
 Dotenv::load([
-    'filepath' =>  './.env',
+    'filepath' =>  './../.env',
     'toEnv' => true
 ]);
 
