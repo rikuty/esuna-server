@@ -12,7 +12,8 @@ $sql = "UPDATE m_result SET ".
 		"arm_length = ".$arm_length.", ".
 		"back_height = ".$back_height." ".
 	   "WHERE user_id = ".$user_id;
-$stmt = $dbh->prepare($sql);
+
+$stmt = $pdo->query($sql);
 $stmt->execute();
 
 echo $sql;
