@@ -1,13 +1,6 @@
 <?php
-require_once("./conf.php");
 
-$dsn = 'mysql:host='.SERVER_URL.';dbname='.DB_NAME.';charset=utf8';
-try {
-	$dbh = new PDO($dsn, USER_NAME, USER_PASS);
-} catch (PDOException $e) {
-	echo 'Cannot connect : ' . $e->getMessage();
-	exit;
-}
+require './../common/conf.php';
 
 $user_id 			 = $_POST['user_id'];
 //$shoulder_height 	 = $_POST['shoulder_height'];
