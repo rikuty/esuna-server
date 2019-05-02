@@ -8,8 +8,8 @@ $first_name = $_POST['first_name'];
 $age 	 	= $_POST['age'];
 
 $sql = "UPDATE u_user SET ".
-		"last_name = ".$last_name.", ".
-		"first_name = ".$first_name.", ".
+		"last_name = '".$last_name."', ".
+		"first_name = '".$first_name."', ".
 		"age = ".$age." ".
 	   "WHERE user_id = ".$user_id;
 
