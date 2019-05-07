@@ -20,7 +20,7 @@ if(isset($_POST['account'])){
 	if($stmt->rowCount() == 0){
 		$error_flg = true;
 	} else {
-		header('Location: http://rikuty.main.jp/cms/Menu.php');
+		header('Location: http://dev.rikuty.net/cms/Menu.php');
 		exit;
 	}
 }
