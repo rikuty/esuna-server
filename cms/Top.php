@@ -20,7 +20,7 @@ if(isset($_POST['account'])){
 	if($stmt->rowCount() == 0){
 		$error_flg = true;
 	} else {
-		header('Location: http://rikuty.main.jp//cms/Menu.php');
+		header('Location: http://rikuty.main.jp/cms/Menu.php');
 		exit;
 	}
 }
@@ -45,7 +45,7 @@ if(isset($_POST['account'])){
 <?php 
 	if($error_flg)
 	{
-		echo '<div style=”color:#FF0000;”>入力情報に誤りがあります。</div>';
+		echo '<font color="#FF0000" size="2">入力情報に誤りがあります。</font>';
 	}
 ?>
 
