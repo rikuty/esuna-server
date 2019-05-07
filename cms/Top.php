@@ -4,6 +4,7 @@ require_once("./../common/conf.php");
 
 session_start();
 if(isset($_SESSION['login'])){
+	echo 'セッション情報破棄';
 	unset($_SESSION['manager_name'] );
 	unset($_SESSION['account'] );
 	unset($_SESSION['password'] );
@@ -54,7 +55,6 @@ if(isset($_POST['account'])){
 </head>
 <body>
 <div id="header_line"><?php echo $page_title; ?></div>
-<div align="left"><a href="http://dev.rikuty.net/cms/Top.php">Top</a></div>
 
 <div id="contents">
 
