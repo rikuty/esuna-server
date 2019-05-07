@@ -40,14 +40,15 @@ if(isset($_POST['account'])){
 <div id="header_line"><?php echo $page_title; ?></div>
 <div align="left"><a href="http://dev.rikuty.net/cms/Top.php">Top</a></div>
 
+<div id="contents">
+
 <?php 
 	if($error_flg)
 	{
-		echo '<div style=”color:red;”>入力情報に誤りがあります。</div>';
+		echo '<div style=”color:#FF0000;”>入力情報に誤りがあります。</div>';
 	}
 ?>
 
-<div id="contents">
 <form method="POST" action="Top.php">
 <p>ユーザーID：<input type="text" name="account"></p>
 <p>パスワード：<input type="password" name="password"></p>
