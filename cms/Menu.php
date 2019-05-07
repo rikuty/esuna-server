@@ -4,29 +4,6 @@ require_once("./../common/conf.php");
 
 $page_title = '管理画面[メニュー]';
 
-// ログイン判定
-$account = $_POST['account'];
-$password = $_POST['password'];
-
-// 管理者情報取得
-$sql = "SELECT * FROM u_manager WHERE account = '".$account."' AND password = '".$password."'";
-$stmt = $pdo->query($sql);
-//while($row = $stmt -> fetch(PDO::FETCH_ASSOC)) {
-    //echo $row["user_id"]." : ".$row["name"]."\n";
-    //echo json_encode($row, JSON_UNESCAPED_UNICODE);
-//}
-echo $sql;
-
-echo "<br>";
-
-echo $stmt->rowCount();
-
-if($user_id != $password){
-	// TOPにリダイレクト
-	//header('Location: http://rikuty.main.jp/test/cms/Top.php');
-	//exit;
-}
-
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
