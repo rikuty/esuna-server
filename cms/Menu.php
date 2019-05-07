@@ -2,6 +2,8 @@
 
 require_once("./../common/conf.php");
 
+session_start();
+
 $page_title = '管理画面[メニュー]';
 
 var_dump($_SESSION);
