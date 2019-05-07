@@ -2,12 +2,22 @@
 
 require_once("./../common/conf.php");
 
+session_start();
+
 $page_title = '管理画面[アクティブユーザー設定]';
 
+$manager_name = $_SESSION['manager_name'];
+
 // アクティブユーザー設定
-$user_id = $_POST['user_id'];
-$password = $_POST['password'];
-if($user_id != $password){
+if(isset($_POST['user_id']) && isset($_POST['active'])){
+	$user_id = $_POST['user_id'];
+
+	$active = if($_POST['active'] == 'on')? 10 : 0;
+
+	// ユーザーアクティブステータス更新
+	$sql = "UPDATE u_user SET active = ".$active." WHERE user_id = ".$user_id;
+	$stmt = $pdo->query($sql);
+	$stmt->execute();
 }
 
 ?>
@@ -23,16 +33,19 @@ if($user_id != $password){
 </head>
 <body>
 <div id="header_line"><?php echo $page_title; ?></div>
-<div align="left"><a href="http://dev.rikuty.net/cms/Top.php">Top</a></div>
+<div align="left"><a href="http://dev.rikuty.net/cms/Top.php">ログアウト[<?php echo $manager_name; ?>]</a></div>
 
 
 <div id="contents">
 <center>
 <form method="POST" action="ActiveSetting.php">
 <table id="as_table">
-	<tr><td id="as_table_left">アクティブユーザーID</td><td id="as_table_right"><input type="text" name="user_id"></td></tr>
-	<tr><td id="as_table_left">パスワード</td><td id="as_table_right"><input type="text" name="password"></td></tr>
-	<tr><td colspan="2" align="center"><input type="submit" value="ログイン"></td></tr>
+	<tr><td id="as_table_left">ユーザーID</td><td id="as_table_right"><input type="text" name="user_id"></td></tr>
+	<tr><td id="as_table_left">アクティブ設定</td><td id="as_table_right">
+		<input type="radio" name="active" value="on"> アクティブ
+		<input type="radio" name="active" value="off"> 解除
+	</td></tr>
+	<tr><td colspan="2" align="center"><input type="submit" value="設定"></td></tr>
 </table>
 </form>
 </center>

@@ -74,7 +74,7 @@ if(isset($_POST['account'])){
 <form method="POST" action="Top.php">
 <p>ユーザーID：<input type="text" name="account"></p>
 <p>パスワード：<input type="password" name="password"></p>
-<p><input type="submit" value="login"></p>
+<p><input type="submit" value="ログイン"></p>
 </form>
 </div>
 
