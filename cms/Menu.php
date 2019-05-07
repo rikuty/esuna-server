@@ -5,11 +5,11 @@ require_once("./../common/conf.php");
 $page_title = '管理画面[メニュー]';
 
 // ログイン判定
-$manager_id = $_POST['manager_id'];
+$account = $_POST['account'];
 $password = $_POST['password'];
 
 // 管理者情報取得
-$sql = "SELECT * FROM u_manager WHERE manager_id = '".$manager_id."' AND password = '".$password."'";
+$sql = "SELECT * FROM u_manager WHERE account = '".$account."' AND password = '".$password."'";
 $stmt = $pdo->query($sql);
 //while($row = $stmt -> fetch(PDO::FETCH_ASSOC)) {
     //echo $row["user_id"]." : ".$row["name"]."\n";
