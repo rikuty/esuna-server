@@ -22,7 +22,7 @@ $page_title = '管理画面[ログイン]';
 
 <div id="contents">
 <form method="POST" action="Menu.php">
-<p>ユーザーID：<input type="text" name="user_id"></p>
+<p>ユーザーID：<input type="text" name="manager_id"></p>
 <p>パスワード：<input type="text" name="password"></p>
 <p><input type="submit" value="ログイン"></p>
 </form>

@@ -5,12 +5,23 @@ require_once("./../common/conf.php");
 $page_title = '管理画面[メニュー]';
 
 // ログイン判定
-$user_id = $_POST['user_id'];
+$manager_id = $_POST['manager_id'];
 $password = $_POST['password'];
+
+// 管理者情報取得
+$stmt = $pdo->query("SELECT * FROM u_manager WHERE manager_id = '".$manager_id."' AND password = '".$password."'");
+//while($row = $stmt -> fetch(PDO::FETCH_ASSOC)) {
+    //echo $row["user_id"]." : ".$row["name"]."\n";
+    //echo json_encode($row, JSON_UNESCAPED_UNICODE);
+//}
+
+$stmt->execute();
+echo $stmt->rowCount();
+
 if($user_id != $password){
 	// TOPにリダイレクト
-	header('Location: http://rikuty.main.jp/test/cms/Top.php');
-	exit;
+	//header('Location: http://rikuty.main.jp/test/cms/Top.php');
+	//exit;
 }
 
 ?>
