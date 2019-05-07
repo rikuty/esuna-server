@@ -3,7 +3,7 @@
 require_once("./../common/conf.php");
 
 session_start();
-/*
+
 if(isset($_SESSION['login'])){
 	echo 'セッション情報破棄<br>';
 	unset($_SESSION['manager_name'] );
@@ -12,16 +12,16 @@ if(isset($_SESSION['login'])){
 	unset($_SESSION['auth_level'] );
 	unset($_SESSION['login'] );
 }
-*/
+
 $page_title = '管理画面[ログイン]';
 
 $error_flg = false;
 
 //var_dump($_SERVER);
 //echo "<br>";
-var_dump($_SESSION);
-echo "<br>";
-var_dump($_POST);
+//var_dump($_SESSION);
+//echo "<br>";
+//var_dump($_POST);
 
 // ログイン判定用
 if(isset($_POST['account'])){
