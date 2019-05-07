@@ -35,7 +35,8 @@ if(isset($_POST['user_id']) && isset($_POST['active'])){
 </head>
 <body>
 <div id="header_line"><?php echo $page_title; ?></div>
-<div align="left"><a href="http://dev.rikuty.net/cms/Top.php">ログアウト[<?php echo $manager_name; ?>]</a></div>
+<div align="left"><a href="http://dev.rikuty.net/cms/Top.php">ログアウト[<?php echo $manager_name; ?>]</a></div><br>
+<a href="http://dev.rikuty.net/cms/Menu.php">Menuに戻る</a><br>
 
 
 <div id="contents">
