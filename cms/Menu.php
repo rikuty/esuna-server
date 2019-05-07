@@ -9,13 +9,16 @@ $manager_id = $_POST['manager_id'];
 $password = $_POST['password'];
 
 // 管理者情報取得
-$stmt = $pdo->query("SELECT * FROM u_manager WHERE manager_id = '".$manager_id."' AND password = '".$password."'");
+$sql = "SELECT * FROM u_manager WHERE manager_id = '".$manager_id."' AND password = '".$password."'";
+$stmt = $pdo->query($sql);
 //while($row = $stmt -> fetch(PDO::FETCH_ASSOC)) {
     //echo $row["user_id"]." : ".$row["name"]."\n";
     //echo json_encode($row, JSON_UNESCAPED_UNICODE);
 //}
+echo $sql;
 
-$stmt->execute();
+echo "<br>";
+
 echo $stmt->rowCount();
 
 if($user_id != $password){
