@@ -44,9 +44,9 @@ if(isset($_POST['user_id']) && isset($_POST['active'])){
 if(isset($_POST['active']))
 {
 	if($_POST['active'] == 'on'){
-		echo '<font color="#FF0000" size="2">'.$user_id.'のユーザーをアクティブにしました。</font>';
+		echo '<font color="#FF0000" size="2">ユーザーID['.sprintf("%08d", $user_id).']をアクティブにしました。</font>';
 	} else {
-		echo '<font color="#FF0000" size="2">'.$user_id.'のユーザーを非アクティブにしました。</font>';
+		echo '<font color="#FF0000" size="2">ユーザーID['.sprintf("%08d", $user_id).']を非アクティブにしました。</font>';
 	}
 }
 ?>
