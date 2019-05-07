@@ -16,6 +16,10 @@ $page_title = '管理画面[ログイン]';
 
 $error_flg = false;
 
+var_dump($_SESSION);
+echo "<br>";
+var_dump($_POST);
+
 // ログイン判定用
 if(isset($_POST['account'])){
 	$account = $_POST['account'];
@@ -68,7 +72,7 @@ if(isset($_POST['account'])){
 <form method="POST" action="Top.php">
 <p>ユーザーID：<input type="text" name="account"></p>
 <p>パスワード：<input type="password" name="password"></p>
-<p><input type="submit" value="ログイン"></p>
+<p><input type="submit" value="login"></p>
 </form>
 </div>
 
