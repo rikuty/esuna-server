@@ -2,6 +2,15 @@
 
 require_once("./../common/conf.php");
 
+session_start();
+if(isset($_SESSION['login'])){
+	unset($_SESSION['manager_name'] );
+	unset($_SESSION['account'] );
+	unset($_SESSION['password'] );
+	unset($_SESSION['auth_level'] );
+	unset($_SESSION['login'] );
+}
+
 $page_title = '管理画面[ログイン]';
 
 $error_flg = false;
@@ -20,6 +29,13 @@ if(isset($_POST['account'])){
 	if($stmt->rowCount() == 0){
 		$error_flg = true;
 	} else {
+		$row = $stmt -> fetch(PDO::FETCH_ASSOC);
+		$_SESSION['manager_name'] = $row['manager_name'];
+		$_SESSION['account'] = $row['account'];
+		$_SESSION['password'] = $row['password'];
+		$_SESSION['auth_level'] = $row['auth_level'];
+		$_SESSION['login'] = true;
+
 		header('Location: http://dev.rikuty.net/cms/Menu.php');
 		exit;
 	}

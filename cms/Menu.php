@@ -4,6 +4,14 @@ require_once("./../common/conf.php");
 
 $page_title = '管理画面[メニュー]';
 
+if(!$_SESSION['login']){
+	// ログインしてなければTopに戻す
+	header('Location: http://dev.rikuty.net/cms/Top.php');
+	exit;
+}
+
+$manager_name = $_SESSION['manager_name'];
+
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -17,12 +25,11 @@ $page_title = '管理画面[メニュー]';
 </head>
 <body>
 <div id="header_line"><?php echo $page_title; ?></div>
-<div align="left"><a href="http://dev.rikuty.net/cms/Top.php">Top</a></div>
+<div align="left"><a href="http://dev.rikuty.net/cms/Top.php">ログアウト[<?php echo $manager_name; ?>]</a></div>
 
 <br>
 <a href="http://dev.rikuty.net/cms/ActiveSetting.php">アクティブユーザー設定</a><br>
 <a href="">プリント設定（仮）</a><br>
-<a href="">その他設定</a><br>
 <a href="">その他設定</a><br>
 <br>
 <br>
