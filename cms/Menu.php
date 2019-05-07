@@ -4,10 +4,14 @@ require_once("./../common/conf.php");
 
 $page_title = '管理画面[メニュー]';
 
+var_dump($_SESSION);
+echo "<br>";
+var_dump($_POST);
+
 if(!$_SESSION['login']){
 	// ログインしてなければTopに戻す
-	header('Location: http://dev.rikuty.net/cms/Top.php');
-	exit;
+	//header('Location: http://dev.rikuty.net/cms/Top.php');
+	//exit;
 }
 
 $manager_name = $_SESSION['manager_name'];
