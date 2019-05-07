@@ -12,7 +12,7 @@ $manager_name = $_SESSION['manager_name'];
 if(isset($_POST['user_id']) && isset($_POST['active'])){
 	$user_id = $_POST['user_id'];
 
-	$active = if($_POST['active'] == 'on')? 10 : 0;
+	$active = ($_POST['active'] == 'on') ? 10 : 0;
 
 	// ユーザーアクティブステータス更新
 	$sql = "UPDATE u_user SET active = ".$active." WHERE user_id = ".$user_id;
