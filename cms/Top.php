@@ -1,8 +1,9 @@
 <?php
 
 require_once("./../common/conf.php");
-/*
+
 session_start();
+/*
 if(isset($_SESSION['login'])){
 	echo 'セッション情報破棄<br>';
 	unset($_SESSION['manager_name'] );
