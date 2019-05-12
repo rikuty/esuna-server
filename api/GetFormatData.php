@@ -2,18 +2,24 @@
 
 require './../common/conf.php';
 
-$sql = "SELECT user_id, CONCAT(last_name, ' ', first_name) as user_name, age, height, experience, rank FROM u_user WHERE active = 10";
+$sql = "SELECT user_id, CONCAT(last_name, ' ', first_name) as user_name, age, height, rank FROM u_user WHERE active = 10";
 $stmt = $pdo->query($sql);
 
 if($stmt->rowCount() == 0){
 	// アクティブユーザー該当なし
 	echo 0;
 } else {
-	$row = $stmt -> fetch(PDO::FETCH_ASSOC);
+	$resultData = $stmt -> fetch(PDO::FETCH_ASSOC);
 
-	var_dump($row);
+	$sql = "SELECT * FROM u_measure WHERE user_id = ".$resultData['user_id']." ORDER BY measure_date DESC";
+	$stmt = $pdo->query($sql);
 
-	//echo json_encode($row, JSON_UNESCAPED_UNICODE);
+	$resultData["measure"] = $stmt -> fetch(PDO::FETCH_ASSOC);
+
+
+	var_dump($resultData);
+
+	//echo json_encode($resultData, JSON_UNESCAPED_UNICODE);
 }
 
 ?>
