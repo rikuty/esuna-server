@@ -11,7 +11,9 @@ if($stmt->rowCount() == 0){
 } else {
 	$row = $stmt -> fetch(PDO::FETCH_ASSOC);
 
-	echo json_encode($row, JSON_UNESCAPED_UNICODE);
+	var_dump($row);
+
+	//echo json_encode($row, JSON_UNESCAPED_UNICODE);
 }
 
 ?>
