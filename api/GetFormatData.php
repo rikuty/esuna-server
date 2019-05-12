@@ -11,7 +11,7 @@ if($stmt->rowCount() == 0){
 } else {
 	$resultData = $stmt -> fetch(PDO::FETCH_ASSOC);
 
-	$sql = "SELECT point FROM u_measure WHERE user_id = ".$resultData['user_id']." ORDER BY measure_date DESC";
+	$sql = "SELECT * FROM u_measure WHERE user_id = ".$resultData['user_id']." ORDER BY measure_date DESC";
 	$stmt = $pdo->query($sql);
 
 	$measureData = array();
