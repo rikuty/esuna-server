@@ -14,8 +14,13 @@ if($stmt->rowCount() == 0){
 	$sql = "SELECT * FROM u_measure WHERE user_id = ".$resultData['user_id']." ORDER BY measure_date DESC";
 	$stmt = $pdo->query($sql);
 
-	$resultData["measure"] = $stmt -> fetch(PDO::FETCH_ASSOC);
-
+	$measureData = array();
+	$index = 1;
+	while($row = $stmt -> fetch(PDO::FETCH_ASSOC)) {
+		$measureData[$index] = $row;
+		$index++;
+	}
+	$resultData["measure"] = $measureData;
 
 	var_dump($resultData);
 
