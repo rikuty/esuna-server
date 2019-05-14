@@ -15,7 +15,7 @@ if($stmt->rowCount() == 0){
 	$stmt = $pdo->query($sql);
 
 	$measureData = array();
-	$index = 1;
+	$index = 0;
 	while($row = $stmt -> fetch(PDO::FETCH_ASSOC)) {
 		$measureData[$index] = $row;
 		$index++;
