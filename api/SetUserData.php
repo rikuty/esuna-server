@@ -5,7 +5,7 @@ require './../common/conf.php';
 // 登録内容を連想配列で生成
 $datalist = array(
 	'user_id' => $_POST['user_id'], 
-	'measure_date' => date("Y-m-d H:i:s"), 
+	'measure_date' => 'NOW()', 
 	'max_rom_measure_1' => $_POST['max_rom_measure_1'],
 	'max_rom_measure_2' => $_POST['max_rom_measure_2'],
 	'max_rom_measure_3' => $_POST['max_rom_measure_3'],
