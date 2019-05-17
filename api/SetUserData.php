@@ -64,10 +64,10 @@ foreach ( $datalist as $key => $value ) {
     }
 }
 
+echo $sql;
+
 $stmt = $pdo->query($sql);
 $stmt->execute();
-
-echo $sql;
 
 $stmt = null;
 ?>
