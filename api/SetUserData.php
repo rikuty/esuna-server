@@ -65,7 +65,7 @@ foreach ( $datalist as $key => $value ) {
     }
 }
 
-echo $sql;
+//echo $sql;
 
 $stmt = $pdo->query($sql);
 $stmt->execute();
