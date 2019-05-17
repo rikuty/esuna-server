@@ -4,6 +4,7 @@ require './../common/conf.php';
 
 // 登録内容を連想配列で生成
 $datalist = array(
+	/*
 	'max_rom_exercise_1' => $_POST['max_rom_exercise_1'],
 	'max_rom_exercise_2' => $_POST['max_rom_exercise_2'],
 	'max_rom_exercise_3' => $_POST['max_rom_exercise_3'],
@@ -35,6 +36,41 @@ $datalist = array(
 	'point' => $_POST['point'], 
 	'rom_value' => $_POST['rom_value'], 
 	'point_value' => $_POST['point_value']
+	*/
+
+
+	'max_rom_exercise_1' => 44,
+	'max_rom_exercise_2' => 44,
+	'max_rom_exercise_3' => 44,
+	'max_rom_exercise_4' => 44,
+	'max_rom_exercise_5' => 44,
+	'max_rom_exercise_6' => 44,
+	'max_rom_exercise_7' => 44,
+	'max_rom_exercise_8' => 44,
+	'average_max_rom' => 44,
+	'average_time_1' => 10,
+	'average_time_2' => 10,
+	'average_time_3' => 10,
+	'average_time_4' => 10,
+	'average_time_5' => 10,
+	'average_time_6' => 10,
+	'average_time_7' => 10,
+	'average_time_8' => 10,
+	'appraisal_value_1' => 3,
+	'appraisal_value_2' => 3,
+	'appraisal_value_3' => 3,
+	'appraisal_value_4' => 3,
+	'appraisal_value_5' => 3,
+	'appraisal_value_6' => 3,
+	'appraisal_value_7' => 3,
+	'appraisal_value_8' => 3,
+	'post_rest_pain' => 5,
+	'post_move_pain' => 3,
+	'post_move_fear' => 3,
+	'point' => 6666,
+	'rom_value' => 22,
+	'point_value' => 22
+
 	);
 
 // 最新レコードに対して更新
