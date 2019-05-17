@@ -40,27 +40,27 @@ $sql = "INSERT INTO u_measure (";
 
 $count = 0;
 foreach ( $datalist as $key => $value ) {
-    $sql += $key;
+    $sql .= $key;
 
     $count++;
     if($count == count($datalist)){
-    	$sql += ") ";
+    	$sql .= ") ";
     }else{
-    	$sql += ", ";
+    	$sql .= ", ";
     }
 }
 
-$sql += "VALUES (";
+$sql .= "VALUES (";
 
 $count = 0;
 foreach ( $datalist as $key => $value ) {
-    $sql += $value;
+    $sql .= $value;
 
     $count++;
     if($count == count($datalist)){
-    	$sql += ") ";
+    	$sql .= ") ";
     }else{
-    	$sql += ", ";
+    	$sql .= ", ";
     }
 }
 
