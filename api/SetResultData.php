@@ -4,7 +4,7 @@ require './../common/conf.php';
 
 // 登録内容を連想配列で生成
 $datalist = array(
-	/*
+	
 	'max_rom_exercise_1' => $_POST['max_rom_exercise_1'],
 	'max_rom_exercise_2' => $_POST['max_rom_exercise_2'],
 	'max_rom_exercise_3' => $_POST['max_rom_exercise_3'],
@@ -36,9 +36,9 @@ $datalist = array(
 	'point' => $_POST['point'], 
 	'rom_value' => $_POST['rom_value'], 
 	'point_value' => $_POST['point_value']
-	*/
+	
 
-
+/*
 	'max_rom_exercise_1' => 44,
 	'max_rom_exercise_2' => 44,
 	'max_rom_exercise_3' => 44,
@@ -70,11 +70,11 @@ $datalist = array(
 	'point' => 6666,
 	'rom_value' => 22,
 	'point_value' => 22
-
+*/
 	);
 
 // 最新レコードに対して更新
-$sql = "UPDATE m_measure SET ";
+$sql = "UPDATE u_measure SET ";
 
 $count = 0;
 foreach ( $datalist as $key => $value ) {
@@ -87,11 +87,8 @@ foreach ( $datalist as $key => $value ) {
 }
 $sql .= " WHERE user_id = 1 ORDER BY measure_date DESC LIMIT 1";
 
-echo $sql;
+//echo $sql;
 
 $stmt = $pdo->query($sql);
-
-
 $stmt = null;
-$dbh = null;
 ?>
