@@ -3,43 +3,53 @@
 require './../common/conf.php';
 
 // 登録内容を連想配列で生成
-/*$datalist = array(
-	'user_id' => $_POST['user_id'], 
-	'measure_date' => 'NOW()', 
-	'max_rom_measure_1' => $_POST['max_rom_measure_1'],
-	'max_rom_measure_2' => $_POST['max_rom_measure_2'],
-	'max_rom_measure_3' => $_POST['max_rom_measure_3'],
-	'max_rom_measure_4' => $_POST['max_rom_measure_4'],
-	'max_rom_measure_5' => $_POST['max_rom_measure_5'],
-	'max_rom_measure_6' => $_POST['max_rom_measure_6'],
-	'max_rom_measure_7' => $_POST['max_rom_measure_7'],
-	'max_rom_measure_8' => $_POST['max_rom_measure_8'],
-	'pre_rest_pain' => $_POST['pre_rest_pain'], 
-	'pre_move_pain' => $_POST['pre_move_pain'], 
-	'pre_move_fear' => $_POST['pre_move_fear']
-	);*/
 $datalist = array(
-	'user_id' => 1, 
-	'measure_date' => 'NOW()', 
-	'max_rom_measure_1' => 44,
-	'max_rom_measure_2' => 44,
-	'max_rom_measure_3' => 44,
-	'max_rom_measure_4' => 44,
-	'max_rom_measure_5' => 44,
-	'max_rom_measure_6' => 44,
-	'max_rom_measure_7' => 44,
-	'max_rom_measure_8' => 44,
-	'pre_rest_pain' => 5,
-	'pre_move_pain' => 5,
-	'pre_move_fear' => 5
+	'max_rom_exercise_1' => $_POST['max_rom_exercise_1'],
+	'max_rom_exercise_2' => $_POST['max_rom_exercise_2'],
+	'max_rom_exercise_3' => $_POST['max_rom_exercise_3'],
+	'max_rom_exercise_4' => $_POST['max_rom_exercise_4'],
+	'max_rom_exercise_5' => $_POST['max_rom_exercise_5'],
+	'max_rom_exercise_6' => $_POST['max_rom_exercise_6'],
+	'max_rom_exercise_7' => $_POST['max_rom_exercise_7'],
+	'max_rom_exercise_8' => $_POST['max_rom_exercise_8'],
+	'average_max_rom' => $_POST['average_max_rom'], 
+	'average_time_1' => $_POST['average_time_1'],
+	'average_time_2' => $_POST['average_time_2'],
+	'average_time_3' => $_POST['average_time_3'],
+	'average_time_4' => $_POST['average_time_4'],
+	'average_time_5' => $_POST['average_time_5'],
+	'average_time_6' => $_POST['average_time_6'],
+	'average_time_7' => $_POST['average_time_7'],
+	'average_time_8' => $_POST['average_time_8'],
+	'appraisal_value_1' => $_POST['appraisal_value_1'],
+	'appraisal_value_2' => $_POST['appraisal_value_2'],
+	'appraisal_value_3' => $_POST['appraisal_value_3'],
+	'appraisal_value_4' => $_POST['appraisal_value_4'],
+	'appraisal_value_5' => $_POST['appraisal_value_5'],
+	'appraisal_value_6' => $_POST['appraisal_value_6'],
+	'appraisal_value_7' => $_POST['appraisal_value_7'],
+	'appraisal_value_8' => $_POST['appraisal_value_8'],
+	'post_rest_pain' => $_POST['post_rest_pain'], 
+	'post_move_pain' => $_POST['post_move_pain'], 
+	'post_move_fear' => $_POST['post_move_fear'],
+	'point' => $_POST['point'], 
+	'rom_value' => $_POST['rom_value'], 
+	'point_value' => $_POST['point_value']
 	);
 
+// 最新レコードに対して更新
+$sql = "UPDATE m_measure SET ";
 
-$sql = "UPDATE m_result SET ".
-		"shoulder_height = ".$shoulder_height.", ".
-		"arm_length = ".$arm_length.", ".
-		"back_height = ".$back_height." ".
-	   "WHERE user_id = ".$user_id;
+$count = 0;
+foreach ( $datalist as $key => $value ) {
+    $sql .= $key." = ".$value;
+
+    $count++;
+    if($count < count($datalist)){
+    	$sql .= ", ";
+    }
+}
+$sql .= "WHERE user_id = ".$_POST['user_id']." ORDER BY measure_date DESC LIMIT 1"
 
 $stmt = $pdo->query($sql);
 $stmt->execute();
