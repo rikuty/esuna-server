@@ -20,7 +20,8 @@ require './../common/conf.php';
 	);*/
 $datalist = array(
 	'user_id' => 1, 
-	'measure_date' => date("Y-m-d H:i:s"), 
+	//'measure_date' => date("Y-m-d H:i:s"), 
+	'measure_date' => 'NOW()', 
 	'max_rom_measure_1' => 44,
 	'max_rom_measure_2' => 44,
 	'max_rom_measure_3' => 44,
