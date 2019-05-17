@@ -3,7 +3,7 @@
 require './../common/conf.php';
 
 // 登録内容を連想配列で生成
-$datalist = array(
+/*$datalist = array(
 	'user_id' => $_POST['user_id'], 
 	'measure_date' => date("Y-m-d H:i:s"), 
 	'max_rom_measure_1' => $_POST['max_rom_measure_1'],
@@ -16,7 +16,22 @@ $datalist = array(
 	'max_rom_measure_8' => $_POST['max_rom_measure_8'],
 	'pre_rest_pain' => $_POST['pre_rest_pain'], 
 	'pre_move_pain' => $_POST['pre_move_pain'], 
-	'pre_move_fear' => $_POST['pre_move_fear'], 
+	'pre_move_fear' => $_POST['pre_move_fear']
+	);*/
+$datalist = array(
+	'user_id' => 1, 
+	'measure_date' => date("Y-m-d H:i:s"), 
+	'max_rom_measure_1' => 44,
+	'max_rom_measure_2' => 44,
+	'max_rom_measure_3' => 44,
+	'max_rom_measure_4' => 44,
+	'max_rom_measure_5' => 44,
+	'max_rom_measure_6' => 44,
+	'max_rom_measure_7' => 44,
+	'max_rom_measure_8' => 44,
+	'pre_rest_pain' => 5,
+	'pre_move_pain' => 5,
+	'pre_move_fear' => 5
 	);
 
 // 新規レコード追加(+ 診断データ更新)
