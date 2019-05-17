@@ -85,11 +85,12 @@ foreach ( $datalist as $key => $value ) {
     	$sql .= ", ";
     }
 }
-$sql .= "WHERE user_id = 1 ORDER BY measure_date DESC LIMIT 1";
+$sql .= " WHERE user_id = 1 ORDER BY measure_date DESC LIMIT 1";
+
+echo $sql;
 
 $stmt = $pdo->query($sql);
 
-echo $sql;
 
 $stmt = null;
 $dbh = null;
