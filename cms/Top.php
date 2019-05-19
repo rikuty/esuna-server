@@ -1,7 +1,7 @@
 <?php
 
 require_once("./../common/conf.php");
-
+phpinfo();
 session_start();
 
 if(isset($_SESSION['login'])){
