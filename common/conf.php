@@ -41,7 +41,7 @@ try {
 }
 
 //time zone setting
-$stmt = $pdo->query("SET SESSION time_zone = CASE WHEN POSITION('rds' IN CURRENT_USER()) = 1 THEN 'UTC' ELSE 'Asia/Tokyo' END");
-$stmt->execute();
-$stmt = null;
+//$stmt = $pdo->query("SET SESSION time_zone = CASE WHEN POSITION('rds' IN CURRENT_USER()) = 1 THEN 'UTC' ELSE 'Asia/Tokyo' END");
+//$stmt->execute();
+//$stmt = null;
 ?>
