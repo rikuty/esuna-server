@@ -5,7 +5,7 @@ require './../common/conf.php';
 // 画像形式確認
 if ($_FILES["file"]["type"] == "image/png") {
 
-	$uploadFile = "../../user_result/".$_POST['user_id']."/".$_FILES["file"]["name"];
+	$uploadFile = "/var/www/user_result/".$_POST['user_id']."/".$_FILES["file"]["name"];
 
     if ($_FILES["file"]["error"] > 0) {
         echo "Return Code:" . $_FILES["file"]["error"] . "";
@@ -17,8 +17,8 @@ if ($_FILES["file"]["type"] == "image/png") {
         //echo "Temp file:" . $_FILES["file"]["tmp_name"] . "";
 
         // ディレクトリ存在確認 -> 無ければ作成
-        if (file_exists("../../user_result/".$_POST['user_id'])) {
-            mkdir("../../user_result/".$_POST['user_id'], 0777);
+        if (file_exists("/var/www/user_result/".$_POST['user_id'])) {
+            mkdir("/var/www/user_result/".$_POST['user_id'], 0777);
         }
 
         move_uploaded_file($_FILES["file"]["tmp_name"], $uploadFile);
