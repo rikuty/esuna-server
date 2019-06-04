@@ -21,7 +21,7 @@ if ($_FILES["file"]["type"] == "image/png") {
             mkdir("../../user_result/".$_POST['user_id'], 0777)
         }
 
-        move_uploaded_file($_FILES["file"]["tmp_name"], $uploadDir);
+        move_uploaded_file($_FILES["file"]["tmp_name"], $uploadFile);
     }
 }
 
