@@ -18,7 +18,6 @@ if ($_FILES["file"]["type"] == "image/png") {
 
         // ディレクトリ存在確認 -> 無ければ作成
         if (!file_exists("/var/www/user_result/".$_POST['user_id'])) {
-			error_log("Make dir", 3, "/var/www/debug.log");
             mkdir("/var/www/user_result/".$_POST['user_id'], 0777);
         }
 
