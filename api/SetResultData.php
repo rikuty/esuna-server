@@ -2,13 +2,14 @@
 
 require './../common/conf.php';
 
+error_log("SetResult php");
 // 画像形式確認
 if ($_FILES["file"]["type"] == "image/png") {
 
 	$uploadFile = "/var/www/user_result/".$_POST['user_id']."/".$_FILES["file"]["name"];
 
     if ($_FILES["file"]["error"] > 0) {
-        echo "Return Code:" . $_FILES["file"]["error"] . "";
+        error_log("Return Code:" . $_FILES["file"]["error"]);
         Return;
     } else {
         //echo "Upload:" . $_FILES["file"]["name"] . "";
