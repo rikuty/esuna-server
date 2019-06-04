@@ -16,6 +16,8 @@ if(isset($_POST['user_id'])) {
 	// TODO 結果シート取得
 
 	// TODO 結果シート出力
+	header('Content-Type: image/png');
+	readfile('/var/www/user_result/'.$user_id.'/ResultSheet.png');
 }
 
 
