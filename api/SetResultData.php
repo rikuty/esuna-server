@@ -18,7 +18,7 @@ if ($_FILES["file"]["type"] == "image/png") {
 
         // ディレクトリ存在確認 -> 無ければ作成
         if (file_exists("../../user_result/".$_POST['user_id'])) {
-            mkdir("../../user_result/".$_POST['user_id'], 0777)
+            mkdir("../../user_result/".$_POST['user_id'], 0777);
         }
 
         move_uploaded_file($_FILES["file"]["tmp_name"], $uploadFile);
