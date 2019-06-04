@@ -2,7 +2,6 @@
 
 require './../common/conf.php';
 
-error_log("SetResult php", 3, "/var/www/debug.log");
 // 画像形式確認
 if ($_FILES["file"]["type"] == "image/png") {
 
@@ -18,7 +17,8 @@ if ($_FILES["file"]["type"] == "image/png") {
         //echo "Temp file:" . $_FILES["file"]["tmp_name"] . "";
 
         // ディレクトリ存在確認 -> 無ければ作成
-        if (file_exists("/var/www/user_result/".$_POST['user_id'])) {
+        if (!file_exists("/var/www/user_result/".$_POST['user_id'])) {
+			error_log("Make dir", 3, "/var/www/debug.log");
             mkdir("/var/www/user_result/".$_POST['user_id'], 0777);
         }
 
