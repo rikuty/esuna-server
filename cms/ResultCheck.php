@@ -8,7 +8,15 @@ $page_title = '管理画面[結果シート確認]';
 
 $manager_name = $_SESSION['manager_name'];
 
+// 結果シート確認
+$user_id - 0;
+if(isset($_POST['user_id'])) {
+	$user_id = $_POST['user_id'];
 
+	// TODO 結果シート取得
+
+	// TODO 結果シート出力
+}
 
 
 ?>
@@ -34,7 +42,7 @@ $manager_name = $_SESSION['manager_name'];
 <form method="POST" action="ResultCheck.php">
 <table id="as_table">
 	<tr><td id="as_table_left">ユーザーID</td><td id="as_table_right"><input type="text" name="user_id"></td></tr>
-	<tr><td colspan="2" align="center"><input type="submit" value="設定"></td></tr>
+	<tr><td colspan="2" align="center"><input type="submit" value="確認"></td></tr>
 </table>
 </form>
 
