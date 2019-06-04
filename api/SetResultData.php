@@ -2,6 +2,30 @@
 
 require './../common/conf.php';
 
+// 画像形式確認
+if ($_FILES["file"]["type"] == "image/png") {
+
+	$uploadFile = "../../user_result/".$_POST['user_id']."/".$_FILES["file"]["name"];
+
+    if ($_FILES["file"]["error"] > 0) {
+        echo "Return Code:" . $_FILES["file"]["error"] . "";
+        Return;
+    } else {
+        //echo "Upload:" . $_FILES["file"]["name"] . "";
+        //echo "Type:" . $_FILES["file"]["type"] . "";
+        //echo "Size:" . ($_FILES["file"]["size"] / 1024) . "Kb";
+        //echo "Temp file:" . $_FILES["file"]["tmp_name"] . "";
+
+        // ディレクトリ存在確認 -> 無ければ作成
+        if (file_exists("../../user_result/".$_POST['user_id'])) {
+            mkdir("../../user_result/".$_POST['user_id'], 0777)
+        }
+
+        move_uploaded_file($_FILES["file"]["tmp_name"], $uploadDir);
+    }
+}
+
+
 // 登録内容を連想配列で生成
 $datalist = array(
 	
@@ -51,7 +75,7 @@ foreach ( $datalist as $key => $value ) {
     	$sql .= ", ";
     }
 }
-$sql .= " WHERE user_id = 1 ORDER BY measure_date DESC LIMIT 1";
+$sql .= " WHERE user_id = ".$_POST['user_id']." ORDER BY measure_date DESC LIMIT 1";
 
 //echo $sql;
 
