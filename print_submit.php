@@ -3,10 +3,10 @@
 //POSTで送りたいデータ
 $query = array(
 	'printerId' => 'cb69ed03-b40b-7f6c-1c21-aef97985cfd6', 
-	'title' => 'test', 
+	'title' => 'LICENSE.txt', 
 	'contentType' => 'url',
 	'content' => 'LICENSE.txt',
-	'ticket' => '{"version":"1.0","print":{"vendor_ticket_item":[],"color":{"type":"STANDARD_MONOCHROME"},"copies":{"copies":1}}}'
+	'ticket' => {"version":"1.0","print":{}}
 );
  
 //URLエンコードされたクエリ文字列を生成
@@ -30,6 +30,8 @@ $context = array(
 $url = 'https://www.google.com/cloudprint/submit';
 $res = file_get_contents($url, false, stream_context_create($context));
 
+echo('<pre>');
 var_dump($res);
+echo('</pre>');
 
 ?>
