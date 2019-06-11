@@ -1,16 +1,16 @@
 <?php
 
 $acces_token = "ya29.GlslB1xfFPHGpu1o_6xlXkvqLaKqgrxLE3vwMHdGwUaJpcjOM2q19KFuK_nWH-bXnEDy5gD_O8oz3GsmV9Kg2d7nJL2nqGuJT3dYTA64PNojYqUzwSOksGsyUyVF";
-//$img = file_get_contents('/var/www/user_result/1/ResultSheet.png');
+$img = file_get_contents('/var/www/user_result/1/ResultSheet.png');
 
 //POSTで送りたいデータ
 $query = array(
 	'printerid' => 'cb69ed03-b40b-7f6c-1c21-aef97985cfd6', 
 	'title' => 'sample01', 
-	//'contentType' => 'image/png',
-	//'content' => $img,
-	'contentType' => 'url',
-	'content' => 'http://luna-sun.com/',
+	'contentType' => 'image/png',
+	'content' => $img,
+	//'contentType' => 'url',
+	//'content' => 'http://luna-sun.com/',
 	'ticket' => '{"version":"1.0","print":{"vendor_ticket_item":[],"color":{"type":"STANDARD_COLOR"},"copies":{"copies":1}}}'
 );
  
@@ -20,9 +20,9 @@ $content = http_build_query($query, '', '&');
 
 //ヘッダ設定
 $header = array(
-	'Content-Type: application/x-www-form-urlencoded', //form送信の際、クライアントがWebサーバーに送信するコンテンツタイプ
+	//'Content-Type: application/x-www-form-urlencoded', //form送信の際、クライアントがWebサーバーに送信するコンテンツタイプ
+	'Content-Type: image/png'
 	'Authorization: OAuth '.$acces_token,
-	//'Content-Type: image/png'
 );
  
 //ストリームコンテキスト設定
