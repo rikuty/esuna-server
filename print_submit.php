@@ -1,13 +1,13 @@
 <?php
 
-//$img = file_get_contents('/var/www/user_result/1/ResultSheet.png');
+$img = file_get_contents('/var/www/user_result/1/ResultSheet.png');
 
 //POSTで送りたいデータ
 $query = array(
 	'printerId' => 'cb69ed03-b40b-7f6c-1c21-aef97985cfd6', 
 	'title' => 'title', 
 	'contentType' => 'url',
-	'content' => 'http://luna-sun.com',
+	'content' => $img,
 	'ticket' => '{"version":"1.0","print":{}}'
 );
  
@@ -17,8 +17,8 @@ $content = http_build_query($query, '', '&');
 
 //ヘッダ設定
 $header = array(
-	'Content-Type: application/x-www-form-urlencoded', //form送信の際、クライアントがWebサーバーに送信するコンテンツタイプ
-	//'Content-Type: image/png'
+	//'Content-Type: application/x-www-form-urlencoded', //form送信の際、クライアントがWebサーバーに送信するコンテンツタイプ
+	'Content-Type: image/png'
 );
  
 //ストリームコンテキスト設定
