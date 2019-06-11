@@ -2,7 +2,7 @@
 
 //POSTで送りたいデータ
 $query = array(
-	'code' => '4/ZgHubrIFr2Koh6bOC1ygUfPWR6FeSUbPr5qumG9SfscAXc2rFbevHyVPY6luGQdyuAaSRnX6D3QOraH1P3ppx30', 
+	'code' => '4/ZgGCde1Z_L68wbi0tICA16djYInHgYgcSWHJz8Fgm1mX1rVXW35iFk8mcpqtMYFTPtyYW-_fHHxLTLrsaPaWHYc', 
 	'client_id' => '761889929248-3p2k0kdbqd031qjtggu7j8sp304kbp05.apps.googleusercontent.com', 
 	'client_secret' => 'p8CBimeORqwqw2129N8h5i2u',
 	'redirect_uri' => 'http://dev.rikuty.net',
