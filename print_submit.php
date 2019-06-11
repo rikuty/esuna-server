@@ -8,7 +8,7 @@ $query = array(
 	'title' => 'title', 
 	'contentType' => 'image/png',
 	'content' => $img,
-	'ticket' => '{"version":"1.0","print":{}}'
+	'ticket' => '{"version":"1.0","print":{"vendor_ticket_item":[],"color":{"type":"STANDARD_MONOCHROME"},"copies":{"copies":1}}}'
 );
  
 //URLエンコードされたクエリ文字列を生成
@@ -17,8 +17,8 @@ $content = http_build_query($query, '', '&');
 
 //ヘッダ設定
 $header = array(
-	'Content-Type: application/x-www-form-urlencoded', //form送信の際、クライアントがWebサーバーに送信するコンテンツタイプ
-	//'Content-Type: image/png'
+	//'Content-Type: application/x-www-form-urlencoded', //form送信の際、クライアントがWebサーバーに送信するコンテンツタイプ
+	'Content-Type: image/png'
 );
  
 //ストリームコンテキスト設定
