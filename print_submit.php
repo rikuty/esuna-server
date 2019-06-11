@@ -6,7 +6,7 @@ $img = file_get_contents('/var/www/user_result/1/ResultSheet.png');
 $query = array(
 	'printerId' => 'cb69ed03-b40b-7f6c-1c21-aef97985cfd6', 
 	'title' => 'title', 
-	'contentType' => 'url',
+	'contentType' => 'image/png',
 	'content' => $img,
 	'ticket' => '{"version":"1.0","print":{}}'
 );
