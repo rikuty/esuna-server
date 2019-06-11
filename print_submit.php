@@ -1,13 +1,13 @@
 <?php
 
-$img = file_get_contents('/var/www/user_result/1/ResultSheet.png');
+//$img = file_get_contents('/var/www/user_result/1/ResultSheet.png');
 
 //POSTで送りたいデータ
 $query = array(
 	'printerId' => 'cb69ed03-b40b-7f6c-1c21-aef97985cfd6', 
-	'title' => 'ResultSheet.png', 
+	'title' => 'title', 
 	'contentType' => 'url',
-	'content' => $img,
+	'content' => 'https://www.google.co.jp/',
 	'ticket' => '{"version":"1.0","print":{}}'
 );
  
