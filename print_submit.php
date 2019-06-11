@@ -7,7 +7,7 @@ $query = array(
 	'printerId' => 'cb69ed03-b40b-7f6c-1c21-aef97985cfd6', 
 	'title' => 'title', 
 	'contentType' => 'url',
-	'content' => 'https://www.google.co.jp/',
+	'content' => 'http://luna-sun.com',
 	'ticket' => '{"version":"1.0","print":{}}'
 );
  
