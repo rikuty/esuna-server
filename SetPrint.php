@@ -57,7 +57,7 @@ $url = 'https://www.google.com/cloudprint/search';
 $res = file_get_contents($url, false, stream_context_create($context));
 $print_obj = json_decode($res);
 
-var_dump($print_obj);
+//var_dump($print_obj);
 
 echo "\n"."printer_id : ".$print_obj->printers[1]->id."\n";
 
@@ -76,7 +76,8 @@ $printer_id = $print_obj->printers[1]->id;
 //     $img  = fread($fp, $size);
 //     fclose($fp);
 // }
-/*
+
+
 //POSTで送りたいデータ
 $query = array(
         'printerid' => $printer_id,
@@ -116,5 +117,5 @@ $exec_obj = json_decode($res);
 echo "\n";
 var_dump($exec_obj);
 echo "\n";
-*/
+
 ?>
