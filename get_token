@@ -24,7 +24,7 @@ $context = array(
 	'http' => array(
 		'ignore_errors' => true, //ステータスコードが失敗を意味する場合でもコンテンツを取得
 		'method' => 'POST', //メソッド。デフォルトはGET
-		'header' => implode("\r\n", $header) //ヘッダ設定
+		//'header' => implode("\r\n", $header) //ヘッダ設定
 	)
 );
 $url = 'https://www.googleapis.com/oauth2/v4/token';
