@@ -4,7 +4,7 @@ $url = 'https://www.googleapis.com/oauth2/v4/token';
 $data = [];
 
 // $data
-$data['code'] = '4/aAEDy_iTREBjwQVMupm2gh3eRW0YMz61vLb9qFU03ISEYGay3ORSJaY';
+$data['code'] = file_get_contents("authorization_code.txt");
 $data['client_id'] = '761889929248-hec2iu2qn5ae35qefm1ji0htu0lmhjmd.apps.googleusercontent.com';
 $data['client_secret'] = 'F3Zva_8sFjFUiuHtjWnD-8Cc';
 $data['redirect_uri'] = 'urn:ietf:wg:oauth:2.0:oob';
@@ -22,18 +22,18 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // 実行結果取得の設定
 
 // 実行
 $res = curl_exec($ch);
-$token_arr = json_decode($res);
+$token_obj = json_decode($res);
 
 echo "\n";
-var_dump($token_arr);
+var_dump($token_obj);
 echo "\n";
 
 // リソースを閉じる
 curl_close($ch);
 
 // アクセストークン、リフレッシュトークンを保管
-$access_token = $token_arr['access_token'];
-$refresh_token = $token_arr['refresh_token'];
+$access_token = $token_obj->access_token;
+$refresh_token = $token_obj->refresh_token;
 
 //ヘッダ設定
 $header = array(
@@ -51,10 +51,12 @@ $context = array(
 $url = 'https://www.google.com/cloudprint/search';
 
 $res = file_get_contents($url, false, stream_context_create($context));
-$print_arr = json_decode($res);
+$print_obj = json_decode($res);
 
 echo "\n";
-var_dump($print_arr);
+var_dump($print_obj);
 echo "\n";
+
+echo "printer_id : ".$print_obj->printers->id;
 
 ?>
