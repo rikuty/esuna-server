@@ -97,7 +97,7 @@ $content = http_build_query($query, '', '&');
 $header = array(
         'Content-Type: application/x-www-form-urlencoded', //form送信の際、クライアントがWebサーバーに送信するコンテンツタイプ
         //'Content-Type: image/png',
-        'Authorization: OAuth '.$acces_token
+        'Authorization: OAuth '.$access_token
 );
 
 //ストリームコンテキスト設定
