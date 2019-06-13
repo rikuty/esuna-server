@@ -1,5 +1,5 @@
 <?php
-
+/*
 $url = 'https://www.googleapis.com/oauth2/v4/token';
 $data = [];
 
@@ -35,6 +35,10 @@ curl_close($ch);
 $access_token = $token_obj->access_token;
 $refresh_token = $token_obj->refresh_token;
 
+*/
+
+$access_token = file_get_contents("access_token.txt");
+
 //ヘッダ設定
 $header = array(
         'Authorization: OAuth '.$access_token, //form送信の際、クライアントがWebサーバーに送信するコンテンツタイプ
@@ -53,10 +57,63 @@ $url = 'https://www.google.com/cloudprint/search';
 $res = file_get_contents($url, false, stream_context_create($context));
 $print_obj = json_decode($res);
 
-echo "\n";
-var_dump($print_obj);
-echo "\n";
+echo "\n"."printer_id : ".$print_obj->printers[1]->id."\n";
 
-echo "printer_id : ".$print_obj->printers->id;
+// プリンターID保管
+$printer_id = $print_obj->printers[1]->id;
+
+
+
+//$img = file_get_contents('/var/www/user_result/1/ResultSheet.png');
+
+// $image_path = '/var/www/user_result/1/ResultSheet.png';
+// $img;
+
+// if (file_exists($image_path)) {
+//     $fp   = fopen($image_path,'rb');
+//     $size = filesize($image_path);
+//     $img  = fread($fp, $size);
+//     fclose($fp);
+// }
+
+//POSTで送りたいデータ
+$query = array(
+        'printerid' => $printer_id,
+        'title' => 'sample01',
+        //'contentType' => 'image/png',
+        //'content' => $img,
+        'contentType' => 'url',
+        'content' => 'https://dev.rikuty.net/image.php',
+        'ticket' => '{"version":"1.0","print":{"vendor_ticket_item":[],"color":{"type":"STANDARD_COLOR"},"copies":{"copies":1}}}'
+);
+
+//URLエンコードされたクエリ文字列を生成
+$content = http_build_query($query, '', '&');
+
+
+//ヘッダ設定
+$header = array(
+        'Content-Type: application/x-www-form-urlencoded', //form送信の際、クライアントがWebサーバーに送信するコンテンツタイプ
+        //'Content-Type: image/png',
+        'Authorization: OAuth '.$acces_token
+);
+
+//ストリームコンテキスト設定
+$context = array(
+        'http' => array(
+                'ignore_errors' => true, //ステータスコードが失敗を意味する場合でもコンテンツを取得
+                'method' => 'POST', //メソッド。デフォルトはGET
+                'header' => implode("\r\n", $header), //ヘッダ設定
+                'content' => $content //送信したいデータ
+        )
+);
+$url = 'https://www.google.com/cloudprint/submit';
+
+$res = file_get_contents($url, false, stream_context_create($context));
+$exec_obj = json_decode($res);
+
+echo "\n";
+var_dump($exec_obj);
+echo "\n";
 
 ?>
