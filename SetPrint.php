@@ -74,7 +74,7 @@ echo "\n"."access_token : ".$token_obj->access_token."\n";
 // アクセストークン、リフレッシュトークンを保管
 $access_token = $token_obj->access_token;
 
-file_put_contents("access_token.txt", $access_token);
+//file_put_contents("access_token.txt", $access_token);
 
 // リソースを閉じる
 curl_close($ch);
