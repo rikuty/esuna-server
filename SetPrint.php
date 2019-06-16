@@ -120,7 +120,7 @@ $printer_id = $print_obj->printers[1]->id;
 //$img = file_get_contents('/var/www/html/ResultSheet.pdf');
 //$img = file_get_contents('/var/www/user_result/1/ResultSheet.png');
 
-$image_path = '/var/www/html/ResultSheet.pdf';
+$image_path = '/var/www/html/ResultSheet.png';
 $img;
 
 if (file_exists($image_path)) {
@@ -134,8 +134,8 @@ if (file_exists($image_path)) {
 $query = array(
         'printerid' => $printer_id,
         'title' => 'sample05',
-        'contentType' => 'application/pdf',
-        //'contentType' => 'image/png',
+        //'contentType' => 'application/pdf',
+        'contentType' => 'image/png',
         'content' => $img,
         //'contentType' => 'url',
         //'content' => 'https://dev.rikuty.net/image.php',
