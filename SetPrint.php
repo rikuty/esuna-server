@@ -144,7 +144,7 @@ $content = http_build_query($query, '', '&');
 
 //ヘッダ設定
 $header = array(
-        //'Content-Type: application/x-www-form-urlencoded', //form送信の際、クライアントがWebサーバーに送信するコンテンツタイプ
+        'Content-Type: application/x-www-form-urlencoded', //form送信の際、クライアントがWebサーバーに送信するコンテンツタイプ
         //'Content-Type: image/png',
         'Authorization: OAuth '.$access_token
 );
