@@ -138,6 +138,9 @@ $query = array(
         'ticket' => '{"version":"1.0","print":{"vendor_ticket_item":[],"color":{"type":"STANDARD_COLOR"},"copies":{"copies":1}}}'
 );
 
+echo "\n".$argv[1]."\n";
+
+
 //URLエンコードされたクエリ文字列を生成
 $content = http_build_query($query, '', '&');
 
@@ -163,9 +166,9 @@ $url = 'https://www.google.com/cloudprint/submit';
 $res = file_get_contents($url, false, stream_context_create($context));
 $exec_obj = json_decode($res);
 
-echo "\n"."success : ".$exec_obj->success."\n";
-//echo "\n";
-//var_dump($exec_obj);
-//echo "\n";
+//echo "\n"."success : ".$exec_obj->success."\n";
+echo "\n";
+var_dump($exec_obj);
+echo "\n";
 
 ?>
