@@ -117,18 +117,18 @@ $printer_id = $print_obj->printers[1]->id;
 /*****************************************************************************************************************/
 
 
-$img = file_get_contents('/var/www/html/ResultSheet.pdf');
+//$img = file_get_contents('/var/www/html/ResultSheet.pdf');
 //$img = file_get_contents('/var/www/user_result/1/ResultSheet.png');
 
-// $image_path = '/var/www/user_result/1/ResultSheet.png';
-// $img;
+$image_path = '/var/www/html/ResultSheet.pdf';
+$img;
 
-// if (file_exists($image_path)) {
-//     $fp   = fopen($image_path,'rb');
-//     $size = filesize($image_path);
-//     $img  = fread($fp, $size);
-//     fclose($fp);
-// }
+if (file_exists($image_path)) {
+    $fp   = fopen($image_path,'rb');
+    $size = filesize($image_path);
+    $img  = fread($fp, $size);
+    fclose($fp);
+}
 
 //POSTで送りたいデータ
 $query = array(
