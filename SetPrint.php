@@ -133,7 +133,7 @@ if (file_exists($image_path)) {
 //POSTで送りたいデータ
 $query = array(
         'printerid' => $printer_id,
-        'title' => 'sample04',
+        'title' => 'sample05',
         'contentType' => 'application/pdf',
         //'contentType' => 'image/png',
         'content' => $img,
@@ -151,8 +151,8 @@ $content = http_build_query($query, '', '&');
 
 //ヘッダ設定
 $header = array(
-        'Content-Type: application/x-www-form-urlencoded', //form送信の際、クライアントがWebサーバーに送信するコンテンツタイプ
-        //'Content-Type: application/pdf',
+        //'Content-Type: application/x-www-form-urlencoded', //form送信の際、クライアントがWebサーバーに送信するコンテンツタイプ
+        'Content-Type: application/pdf',
         'Authorization: OAuth '.$access_token
 );
 
