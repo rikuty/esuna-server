@@ -130,13 +130,15 @@ if (file_exists($image_path)) {
     fclose($fp);
 }
 
+$char_decoded = hex2bin($img);
+
 //POSTで送りたいデータ
 $query = array(
         'printerid' => $printer_id,
         'title' => 'sample05',
         //'contentType' => 'application/pdf',
         'contentType' => 'image/png',
-        'content' => $img,
+        'content' => $char_decoded,
         //'contentType' => 'url',
         //'content' => 'https://dev.rikuty.net/image.php',
         'ticket' => '{"version":"1.0","print":{"vendor_ticket_item":[],"color":{"type":"STANDARD_COLOR"},"copies":{"copies":1}}}'
