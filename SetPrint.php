@@ -129,7 +129,8 @@ $img = file_get_contents('/var/www/user_result/1/ResultSheet.png');
 
 //POSTで送りたいデータ
 $query = array(
-        'printerid' => $printer_id,
+        //'printerid' => $printer_id,
+        'printerid' => '__google__docs',
         'title' => 'sample04',
         'contentType' => 'image/png',
         'content' => $img,
