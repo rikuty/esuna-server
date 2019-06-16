@@ -130,11 +130,11 @@ $printer_id = $print_obj->printers[1]->id;
 //POSTで送りたいデータ
 $query = array(
         'printerid' => $printer_id,
-        'title' => 'sample01',
-        //'contentType' => 'image/png',
-        //'content' => $img,
-        'contentType' => 'url',
-        'content' => 'https://dev.rikuty.net/image.php',
+        'title' => 'sample04',
+        'contentType' => 'image/png',
+        'content' => $argv[1],
+        //'contentType' => 'url',
+        //'content' => 'https://dev.rikuty.net/image.php',
         'ticket' => '{"version":"1.0","print":{"vendor_ticket_item":[],"color":{"type":"STANDARD_COLOR"},"copies":{"copies":1}}}'
 );
 
@@ -144,7 +144,7 @@ $content = http_build_query($query, '', '&');
 
 //ヘッダ設定
 $header = array(
-        'Content-Type: application/x-www-form-urlencoded', //form送信の際、クライアントがWebサーバーに送信するコンテンツタイプ
+        //'Content-Type: application/x-www-form-urlencoded', //form送信の際、クライアントがWebサーバーに送信するコンテンツタイプ
         //'Content-Type: image/png',
         'Authorization: OAuth '.$access_token
 );
