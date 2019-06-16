@@ -118,19 +118,18 @@ $printer_id = $print_obj->printers[1]->id;
 
 
 //$img = file_get_contents('/var/www/html/ResultSheet.pdf');
-//$img = file_get_contents('/var/www/user_result/1/ResultSheet.png');
+$img = file_get_contents('/var/www/html/ResultSheet.png');
 
-$image_path = '/var/www/html/ResultSheet.png';
-$img;
+// $image_path = '/var/www/html/ResultSheet.png';
+// $img;
 
-if (file_exists($image_path)) {
-    $fp   = fopen($image_path,'rb');
-    $size = filesize($image_path);
-    $img  = fread($fp, $size);
-    fclose($fp);
-}
+// if (file_exists($image_path)) {
+//     $fp   = fopen($image_path,'rb');
+//     $size = filesize($image_path);
+//     $img  = fread($fp, $size);
+//     fclose($fp);
+// }
 
-$char_decoded = hex2bin($img);
 
 //POSTで送りたいデータ
 $query = array(
@@ -138,7 +137,7 @@ $query = array(
         'title' => 'sample05',
         //'contentType' => 'application/pdf',
         'contentType' => 'image/png',
-        'content' => $char_decoded,
+        'content' => $img,
         //'contentType' => 'url',
         //'content' => 'https://dev.rikuty.net/image.php',
         'ticket' => '{"version":"1.0","print":{"vendor_ticket_item":[],"color":{"type":"STANDARD_COLOR"},"copies":{"copies":1}}}'
