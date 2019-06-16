@@ -115,7 +115,7 @@ $printer_id = $print_obj->printers[1]->id;
 /*****************************************************************************************************************/
 /************************************************ プリント出力 *****************************************************/
 /*****************************************************************************************************************/
-//$img = file_get_contents('/var/www/user_result/1/ResultSheet.png');
+$img = file_get_contents('/var/www/user_result/1/ResultSheet.png');
 
 // $image_path = '/var/www/user_result/1/ResultSheet.png';
 // $img;
@@ -132,13 +132,13 @@ $query = array(
         'printerid' => $printer_id,
         'title' => 'sample04',
         'contentType' => 'image/png',
-        'content' => $argv[1],
+        'content' => $img,
         //'contentType' => 'url',
         //'content' => 'https://dev.rikuty.net/image.php',
         'ticket' => '{"version":"1.0","print":{"vendor_ticket_item":[],"color":{"type":"STANDARD_COLOR"},"copies":{"copies":1}}}'
 );
 
-echo "\n".$argv[1]."\n";
+//echo "\n".$argv[1]."\n";
 
 
 //URLエンコードされたクエリ文字列を生成
@@ -147,7 +147,7 @@ $content = http_build_query($query, '', '&');
 
 //ヘッダ設定
 $header = array(
-        'Content-Type: application/x-www-form-urlencoded', //form送信の際、クライアントがWebサーバーに送信するコンテンツタイプ
+        //'Content-Type: application/x-www-form-urlencoded', //form送信の際、クライアントがWebサーバーに送信するコンテンツタイプ
         //'Content-Type: image/png',
         'Authorization: OAuth '.$access_token
 );
