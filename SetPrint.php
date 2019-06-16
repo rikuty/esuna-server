@@ -148,7 +148,7 @@ $content = http_build_query($query, '', '&');
 //ヘッダ設定
 $header = array(
         //'Content-Type: application/x-www-form-urlencoded', //form送信の際、クライアントがWebサーバーに送信するコンテンツタイプ
-        //'Content-Type: image/png',
+        'Content-Type: image/png',
         'Authorization: OAuth '.$access_token
 );
 
@@ -166,9 +166,10 @@ $url = 'https://www.google.com/cloudprint/submit';
 $res = file_get_contents($url, false, stream_context_create($context));
 $exec_obj = json_decode($res);
 
-//echo "\n"."success : ".$exec_obj->success."\n";
-echo "\n";
-var_dump($exec_obj);
-echo "\n";
+echo "\n"."success : ".$exec_obj->success."\n";
+echo "\n"."message : ".$exec_obj->message."\n";
+//echo "\n";
+//var_dump($exec_obj);
+//echo "\n";
 
 ?>
