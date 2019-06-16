@@ -8,7 +8,7 @@ if (file_exists($image_path)) {
     $img  = fread($fp, $size);
     fclose($fp);
 
-    header('Content-Type: image/jpeg');
+    header('Content-Type: image/png');
     echo $img;
 }
 

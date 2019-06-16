@@ -115,22 +115,23 @@ $printer_id = $print_obj->printers[1]->id;
 /*****************************************************************************************************************/
 /************************************************ プリント出力 *****************************************************/
 /*****************************************************************************************************************/
-$img = file_get_contents('/var/www/user_result/1/ResultSheet.png');
+//$img = file_get_contents('/var/www/user_result/1/ResultSheet.png');
 
-// $image_path = '/var/www/user_result/1/ResultSheet.png';
-// $img;
+//$img = file_get_contents('/var/www/user_result/1/ResultSheet.png');
 
-// if (file_exists($image_path)) {
-//     $fp   = fopen($image_path,'rb');
-//     $size = filesize($image_path);
-//     $img  = fread($fp, $size);
-//     fclose($fp);
-// }
+$image_path = '/var/www/user_result/1/ResultSheet.png';
+$img;
+
+if (file_exists($image_path)) {
+    $fp   = fopen($image_path,'rb');
+    $size = filesize($image_path);
+    $img  = fread($fp, $size);
+    fclose($fp);
+}
 
 //POSTで送りたいデータ
 $query = array(
-        //'printerid' => $printer_id,
-        'printerid' => '__google__docs',
+        'printerid' => $printer_id,
         'title' => 'sample04',
         'contentType' => 'image/png',
         'content' => $img,
@@ -149,7 +150,7 @@ $content = http_build_query($query, '', '&');
 //ヘッダ設定
 $header = array(
         //'Content-Type: application/x-www-form-urlencoded', //form送信の際、クライアントがWebサーバーに送信するコンテンツタイプ
-        'Content-Type: image/png',
+        //'Content-Type: image/png',
         'Authorization: OAuth '.$access_token
 );
 
