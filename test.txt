@@ -1,1 +1,3 @@
-test test
+<?php
+var_dump($argv);
+?>
