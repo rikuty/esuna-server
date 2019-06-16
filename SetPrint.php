@@ -115,9 +115,10 @@ $printer_id = $print_obj->printers[1]->id;
 /*****************************************************************************************************************/
 /************************************************ プリント出力 *****************************************************/
 /*****************************************************************************************************************/
-//$img = file_get_contents('/var/www/user_result/1/ResultSheet.png');
 
-$img = file_get_contents('/var/www/html/ResultSheet.pdf');
+
+//$img = file_get_contents('/var/www/html/ResultSheet.pdf');
+$img = file_get_contents('/var/www/user_result/1/ResultSheet.png');
 
 // $image_path = '/var/www/user_result/1/ResultSheet.png';
 // $img;
@@ -133,7 +134,8 @@ $img = file_get_contents('/var/www/html/ResultSheet.pdf');
 $query = array(
         'printerid' => $printer_id,
         'title' => 'sample04',
-        'contentType' => 'application/pdf',
+        //'contentType' => 'application/pdf',
+        'contentType' => 'image/png',
         'content' => $img,
         //'contentType' => 'url',
         //'content' => 'https://dev.rikuty.net/image.php',
