@@ -9,8 +9,8 @@ $data = [];
 
 // $data
 $data['code'] = file_get_contents("authorization_code.txt");
-$data['client_id'] = '761889929248-hec2iu2qn5ae35qefm1ji0htu0lmhjmd.apps.googleusercontent.com';
-$data['client_secret'] = 'F3Zva_8sFjFUiuHtjWnD-8Cc';
+$data['client_id'] = '819193872087-id01qp1ueeahujtifpelrkculol2t279.apps.googleusercontent.com';
+$data['client_secret'] = 'UU9mauUdktTiDPd8jA7E_Fmk';
 $data['redirect_uri'] = 'urn:ietf:wg:oauth:2.0:oob';
 $data['grant_type'] = 'authorization_code';
 $data['access_type'] = 'offline';
