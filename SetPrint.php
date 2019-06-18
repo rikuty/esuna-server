@@ -118,7 +118,7 @@ $printer_id = $print_obj->printers[1]->id;
 
 
 //$img = file_get_contents('/var/www/html/ResultSheet.pdf');
-$img = base64_encode(file_get_contents('/var/www/html/ResultSheet.png'));
+$img = file_get_contents('/var/www/html/ResultSheet.png');
 
 // $image_path = '/var/www/html/ResultSheet.png';
 // $img;
