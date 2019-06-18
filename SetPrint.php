@@ -52,8 +52,8 @@ $refresh_data = [];
 
 // $data
 $refresh_data['refresh_token'] = file_get_contents("refresh_token.txt");
-$refresh_data['client_id'] = '761889929248-hec2iu2qn5ae35qefm1ji0htu0lmhjmd.apps.googleusercontent.com';
-$refresh_data['client_secret'] = 'F3Zva_8sFjFUiuHtjWnD-8Cc';
+$refresh_data['client_id'] = '819193872087-id01qp1ueeahujtifpelrkculol2t279.apps.googleusercontent.com';
+$refresh_data['client_secret'] = 'UU9mauUdktTiDPd8jA7E_Fmk';
 $refresh_data['grant_type'] = 'refresh_token';
 
 // curlを初期化
