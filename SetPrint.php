@@ -118,7 +118,7 @@ $printer_id = $print_obj->printers[1]->id;
 
 
 //$img = file_get_contents('/var/www/html/ResultSheet.pdf');
-$img = file_get_contents('/var/www/html/ResultSheet.png');
+//$img = file_get_contents('/var/www/html/ResultSheet.png');
 
 // $image_path = '/var/www/html/ResultSheet.png';
 // $img;
@@ -136,10 +136,10 @@ $query = array(
         'printerid' => $printer_id,
         'title' => 'sample05',
         //'contentType' => 'application/pdf',
-        'contentType' => 'image/png',
-        'content' => $img,
-        //'contentType' => 'url',
-        //'content' => 'https://dev.rikuty.net/image.php',
+        //'contentType' => 'image/png',
+        //'content' => $img,
+        'contentType' => 'url',
+        'content' => 'https://dev.rikuty.net/image.php',
         'ticket' => '{"version":"1.0","print":{"vendor_ticket_item":[],"color":{"type":"STANDARD_COLOR"},"copies":{"copies":1}}}'
 );
 
