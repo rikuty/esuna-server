@@ -76,7 +76,7 @@ $print_obj = json_decode($res);
 
 $printerId = "";
 
-if($print_obj->printers[0]->id == "__google__doc"){
+if($print_obj->printers[0]->id == "__google__docs"){
         $printerId = $print_obj->printers[1]->id;
 } else {
         $printerId = $print_obj->printers[0]->id;
