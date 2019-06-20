@@ -5,7 +5,7 @@ require '/var/www/html/common/conf.php';
 /******************************************************************************************************************/
 /********************************************* アクセストークン取得 **************************************************/
 /******************************************************************************************************************/
-/*
+
 $url = 'https://www.googleapis.com/oauth2/v4/token';
 
 if(!array_key_exists("facility_id", $_GET)){
@@ -25,11 +25,11 @@ $facility_id = $_GET["facility_id"];
 $client_id = $_GET["client_id"];
 $client_secret = $_GET["client_secret"];
 $authorization_code = $_GET["authcode"];
-*/
+
 echo "<pre>";
 var_dump($_GET);
 echo "<pre>";
-/*
+
 $data = [];
 // $data
 $data['code'] = $authorization_code;
@@ -69,5 +69,5 @@ $stmt = null;
 $ch = null;
 $res = null;
 $token_obj = null;
-*/
+
 ?>
