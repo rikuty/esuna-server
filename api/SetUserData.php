@@ -3,6 +3,36 @@
 require './../common/conf.php';
 
 // 登録内容を連想配列で生成
+
+$userDataList = array(
+	'user_id' => $_POST['user_id'], 
+	'sitting_height' => $_POST['sitting_height'], 
+	'left_hand_x' => $_POST['left_hand_x'], 
+	'left_hand_y' => $_POST['left_hand_y'], 
+	'left_hand_z' => $_POST['left_hand_z'], 
+	'right_hand_x' => $_POST['right_hand_x'], 
+	'right_hand_y' => $_POST['right_hand_y'], 
+	'right_hand_z' => $_POST['right_hand_z']
+	);
+
+$sql = "UPDATE u_user SET ";
+
+$count = 0;
+foreach ( $userDataList as $key => $value ) {
+    $sql .= $key." = ".$value;
+
+    $count++;
+    if($count < count($userDataList)){
+    	$sql .= ", ";
+    }
+}
+$sql .= " WHERE user_id = ".$_POST['user_id']." LIMIT 1";
+
+//echo $sql;
+
+$stmt = $pdo->query($sql);
+$stmt = null;
+
 $datalist = array(
 	'user_id' => $_POST['user_id'], 
 	'measure_date' => 'NOW()', 
@@ -53,4 +83,5 @@ foreach ( $datalist as $key => $value ) {
 
 $stmt = $pdo->query($sql);
 $stmt = null;
+
 ?>
