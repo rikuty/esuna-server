@@ -50,8 +50,6 @@ echo "access_token : ".$token_obj->access_token."<br>";
 // アクセストークン、リフレッシュトークンを保管
 $access_token = $token_obj->access_token;
 
-//file_put_contents("access_token.txt", $access_token);
-
 // リソースを閉じる
 curl_close($ch);
 
@@ -82,8 +80,6 @@ $url = 'https://www.google.com/cloudprint/search';
 $res = file_get_contents($url, false, stream_context_create($context));
 $print_obj = json_decode($res);
 
-//var_dump($print_obj);
-
 $printerId = "";
 
 if($print_obj->printers[0]->id == "__google__docs"){
@@ -97,7 +93,6 @@ echo "printer_id : ".$printerId."<br>";
 /*****************************************************************************************************************/
 /************************************************ プリント出力 *****************************************************/
 /*****************************************************************************************************************/
-
 //$img = file_get_contents('/var/www/html/ResultSheet.pdf');
 //$img = file_get_contents('/var/www/html/ResultSheet.png');
 
