@@ -7,7 +7,6 @@ require './common/conf.php';
 /******************************************************************************************************************/
 
 $url = 'https://www.googleapis.com/oauth2/v4/token';
-$data = [];
 
 if(!array_key_exists("facility_id", $_GET)){
 	exit('facility_idを指定してください');
@@ -31,6 +30,7 @@ echo "<pre>";
 var_dump($_GET);
 echo "<pre>";
 
+$data = [];
 // $data
 $data['code'] = $authorization_code;
 $data['client_id'] = $client_id;
