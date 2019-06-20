@@ -74,7 +74,7 @@ $printerId = "";
 if($print_obj->printers[0]->id == "__google__doc"){
         $printerId = $print_obj->printers[1]->id;
 } else {
-        $printerId = $print_obj->printers[0]->id
+        $printerId = $print_obj->printers[0]->id;
 }
 
 echo "printer_id : ".$printerId."<br>";
