@@ -1,13 +1,21 @@
 <?php
 require '/var/www/html/common/conf.php';
 
+/*********************************************************************************************************************/
+/********************************************* リフレッシュトークン更新 *************************************************/
+/*********************************************************************************************************************/
 $url = 'https://www.googleapis.com/oauth2/v4/token';
 $refresh_data = [];
 
+$sql = "SELECT refresh_token, client_id, client_secret FROM u_facility WHERE facility_id = ".$facility_id.' LIMIT 1';
+$stmt = $pdo->query($sql);
+
+$resData = $stmt -> fetch(PDO::FETCH_ASSOC);
+
 // $data
-$refresh_data['refresh_token'] = file_get_contents("refresh_token.txt");
-$refresh_data['client_id'] = '819193872087-id01qp1ueeahujtifpelrkculol2t279.apps.googleusercontent.com';
-$refresh_data['client_secret'] = 'UU9mauUdktTiDPd8jA7E_Fmk';
+$refresh_data['refresh_token'] = $resData['refresh_token'];
+$refresh_data['client_id'] = $resData['client_id'];
+$refresh_data['client_secret'] = $resData['client_secret'];
 $refresh_data['grant_type'] = 'refresh_token';
 
 // curlを初期化
@@ -23,7 +31,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // 実行結果取得の設定
 $res = curl_exec($ch);
 $token_obj = json_decode($res);
 
-echo "\n"."access_token : ".$token_obj->access_token."\n";
+echo "access_token : ".$token_obj->access_token."<br>";
 
 // アクセストークン、リフレッシュトークンを保管
 $access_token = $token_obj->access_token;
@@ -61,10 +69,15 @@ $print_obj = json_decode($res);
 
 //var_dump($print_obj);
 
-echo "\n"."printer_id : ".$print_obj->printers[1]->id."\n";
+$printerId = "";
 
-// プリンターID保管
-$printer_id = $print_obj->printers[1]->id;
+if($print_obj->printers[0]->id == "__google__doc"){
+        $printerId = $print_obj->printers[1]->id;
+} else {
+        $printerId = $print_obj->printers[0]->id
+}
+
+echo "printer_id : ".$printerId."<br>";
 
 /*****************************************************************************************************************/
 /************************************************ プリント出力 *****************************************************/
@@ -87,7 +100,7 @@ $printer_id = $print_obj->printers[1]->id;
 
 //POSTで送りたいデータ
 $query = array(
-        'printerid' => $printer_id,
+        'printerid' => $printerId,
         'title' => 'sample05',
         //'contentType' => 'application/pdf',
         //'contentType' => 'image/png',
@@ -96,8 +109,6 @@ $query = array(
         'content' => 'https://dev.rikuty.net/image.php',
         'ticket' => '{"version":"1.0","print":{"vendor_ticket_item":[],"color":{"type":"STANDARD_COLOR"},"copies":{"copies":1}}}'
 );
-
-//echo "\n".$argv[1]."\n";
 
 
 //URLエンコードされたクエリ文字列を生成
@@ -125,10 +136,9 @@ $url = 'https://www.google.com/cloudprint/submit';
 $res = file_get_contents($url, false, stream_context_create($context));
 $exec_obj = json_decode($res);
 
-echo "\n"."success : ".$exec_obj->success."\n";
-echo "\n"."message : ".$exec_obj->message."\n";
-//echo "\n";
-//var_dump($exec_obj);
-//echo "\n";
+echo "<br>";
+echo "success : ".$exec_obj->success;
+echo "<br>";
+echo "message : ".$exec_obj->message;
 
 ?>
