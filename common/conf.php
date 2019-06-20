@@ -1,8 +1,8 @@
 <?php
-require './../vendor/autoload.php';
+require '/var/www/html/vendor/autoload.php';
 use  josegonzalez\Dotenv\Loader as Dotenv;
 Dotenv::load([
-    'filepath' =>  './../.env',
+    'filepath' =>  '/var/www/html/.env',
     'toEnv' => true
 ]);
 
