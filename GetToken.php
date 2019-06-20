@@ -9,7 +9,20 @@ require './common/conf.php';
 $url = 'https://www.googleapis.com/oauth2/v4/token';
 $data = [];
 
-$facility_id = $_GET["fid"];
+if(!array_key_exists("facility_id", $_GET)){
+	exit('facility_idを指定してください');
+}
+if(!array_key_exists("client_id", $_GET)){
+	exit('client_idを指定してください');
+}
+if(!array_key_exists("client_secret", $_GET)){
+	exit('client_secretを指定してください');
+}
+if(!array_key_exists("authcode", $_GET)){
+	exit('authcodeを指定してください');
+}
+
+$facility_id = $_GET["facility_id"];
 $client_id = $_GET["client_id"];
 $client_secret = $_GET["client_secret"];
 $authorization_code = $_GET["authcode"];
