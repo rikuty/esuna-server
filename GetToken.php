@@ -29,7 +29,7 @@ $authorization_code = $_GET["authcode"];
 echo "<pre>";
 var_dump($_GET);
 echo "<pre>";
-
+/*
 $data = [];
 // $data
 $data['code'] = $authorization_code;
@@ -69,5 +69,5 @@ $stmt = null;
 $ch = null;
 $res = null;
 $token_obj = null;
-
+*/
 ?>
