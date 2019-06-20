@@ -4,7 +4,11 @@ require '/var/www/html/common/conf.php';
 if(!array_key_exists("facility_id", $_GET)){
         exit('facility_idを指定してください');
 }
+if(!array_key_exists("user_id", $_GET)){
+        exit('user_idを指定してください');
+}
 $facility_id = $_GET["facility_id"];
+$user_id = $_GET["user_id"];
 
 /*********************************************************************************************************************/
 /********************************************* リフレッシュトークン更新 *************************************************/
@@ -46,6 +50,7 @@ $access_token = $token_obj->access_token;
 // リソースを閉じる
 curl_close($ch);
 
+$stmt = null;
 $ch = null;
 $res = null;
 $token_obj = null;
@@ -105,12 +110,12 @@ echo "printer_id : ".$printerId."<br>";
 //POSTで送りたいデータ
 $query = array(
         'printerid' => $printerId,
-        'title' => 'sample05',
+        'title' => 'ResultSheet',
         //'contentType' => 'application/pdf',
         //'contentType' => 'image/png',
         //'content' => $img,
         'contentType' => 'url',
-        'content' => 'https://dev.rikuty.net/image.php',
+        'content' => 'https://dev.rikuty.net/image.php?user_id='.$user_id,
         'ticket' => '{"version":"1.0","print":{"vendor_ticket_item":[],"color":{"type":"STANDARD_COLOR"},"copies":{"copies":1}}}'
 );
 
