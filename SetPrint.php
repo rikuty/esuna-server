@@ -121,7 +121,7 @@ $query = array(
         //'content' => $img,
         'contentType' => 'url',
         'content' => 'https://dev.rikuty.net/image.php?user_id='.$user_id,
-        'ticket' => '{"version":"1.0","print":{"vendor_ticket_item":[],"color":{"type":"STANDARD_COLOR"},"copies":{"copies":1}}}'
+        'ticket' => '{"version":"1.0","print":{"vendor_ticket_item":[],"color":{"type":"STANDARD_COLOR"},"copies":{"copies":1},"reverse_order":1}'
 );
 
 
