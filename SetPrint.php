@@ -1,13 +1,18 @@
 <?php
 require '/var/www/html/common/conf.php';
 
+if(!array_key_exists("facility_id", $_GET)){
+        exit('facility_idを指定してください');
+}
+$facility_id = $_GET["facility_id"];
+
 /*********************************************************************************************************************/
 /********************************************* リフレッシュトークン更新 *************************************************/
 /*********************************************************************************************************************/
 $url = 'https://www.googleapis.com/oauth2/v4/token';
 $refresh_data = [];
 
-$sql = "SELECT refresh_token, client_id, client_secret FROM u_facility WHERE facility_id = ".$facility_id.' LIMIT 1';
+$sql = "SELECT * FROM u_facility WHERE facility_id = ".$facility_id.' LIMIT 1';
 $stmt = $pdo->query($sql);
 
 $resData = $stmt -> fetch(PDO::FETCH_ASSOC);
@@ -82,7 +87,7 @@ echo "printer_id : ".$printerId."<br>";
 /*****************************************************************************************************************/
 /************************************************ プリント出力 *****************************************************/
 /*****************************************************************************************************************/
-
+/*
 
 //$img = file_get_contents('/var/www/html/ResultSheet.pdf');
 //$img = file_get_contents('/var/www/html/ResultSheet.png');
@@ -140,5 +145,5 @@ echo "<br>";
 echo "success : ".$exec_obj->success;
 echo "<br>";
 echo "message : ".$exec_obj->message;
-
+*/
 ?>
