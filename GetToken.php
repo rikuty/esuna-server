@@ -64,7 +64,7 @@ $refresh_token = $token_obj->refresh_token;
 
 $sql = "UPDATE u_facility SET refresh_token = ".$refresh_token." WHERE facility_id = ".$facility_id." LIMIT 1";
 $stmt = $pdo->query($sql);
-
+echo $sql;
 $stmt = null;
 $ch = null;
 $res = null;
