@@ -1,13 +1,9 @@
 <?php
 require '/var/www/html/common/conf.php';
 
-if(!array_key_exists("facility_id", $_GET)){
-        exit('facility_idを指定してください');
-}
 if(!array_key_exists("user_id", $_GET)){
         exit('user_idを指定してください');
 }
-$facility_id = $_GET["facility_id"];
 $user_id = $_GET["user_id"];
 
 $image_path = '/var/www/user_result/'.$user_id.'/ResultSheet.png';
@@ -21,7 +17,7 @@ if (!file_exists($image_path)) {
 $url = 'https://www.googleapis.com/oauth2/v4/token';
 $refresh_data = [];
 
-$sql = "SELECT * FROM u_facility WHERE facility_id = ".$facility_id.' LIMIT 1';
+$sql = 'SELECT refresh_token, client_id, client_secret FROM u_user LEFT OUTER JOIN u_facility ON u_user.facility_id = u_facility.facility_id WHERE user_id = '.$user_id.' LIMIT 1';
 $stmt = $pdo->query($sql);
 
 $resData = $stmt -> fetch(PDO::FETCH_ASSOC);
