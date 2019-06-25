@@ -4,3 +4,4 @@ tmp/*
 .env
 
 /scripts/actions
+esuna-server.esproj
