@@ -1,10 +1,10 @@
 <?php
-
-require_once("./common/conf.php");
+require_once("./common/UtilClass.php");
 
 $page_title = '新規ユーザー登録';
 
 //var_dump($_POST);
+$fid = $_GET['fid'];
 
 $message_flg = '';
 if(
@@ -13,7 +13,7 @@ strlen($_POST['birthday']) > 0 &&
 strlen($_POST['gender']) > 0 && 
 strlen($_POST['height']) > 0 &&  
 strlen($_POST['weight']) > 0 &&  
-strlen($_POST['email'])
+strlen($_POST['email']) > 0
 ){
 	$datalist = array(
 		'nickname' => $_POST['nickname'], 
@@ -69,7 +69,10 @@ strlen($_POST['email'])
 	$message_flg = "success";
 	
 	// 新規発行したIDをユーザーに通知
-	mail($_POST['email'], "PainVR - 新規ID発行のお知らせ", "新規ID：$lastInsertId"."\nこちらのIDでログインして下さい。", "From: info@rikuty.co.jp");
+	mail($_POST['email'], "PainVR - 新規ID発行のお知らせ", "新規ID：$lastInsertId"."\nこちらのIDでログイン出来ます。", "From: info@rikuty.co.jp");
+	
+	// ログイン処理
+	UtilClass::loginFacility($lastInsertId, $fid);
 	
 } else if (count($_POST) != 0) {
 	$message_flg = "error";
