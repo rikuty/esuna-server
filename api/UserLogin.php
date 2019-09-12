@@ -13,7 +13,7 @@ $row = $stmt -> fetch(PDO::FETCH_ASSOC);
 if($row['active_user_id'] != null) {
 	$userId = $row['active_user_id'];
 	//ログインユーザー情報の取得
-	$sql = "SELECT user_id, CONCAT(last_name, ' ', first_name) as user_name FROM u_user WHERE user_id = ".$userId;
+	$sql = "SELECT * FROM u_user WHERE user_id = ".$userId;
 	$stmt = $pdo->query($sql);
 	
 	if($stmt->rowCount() == 0){

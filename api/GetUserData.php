@@ -2,7 +2,7 @@
 
 require './../common/conf.php';
 
-$sql = "SELECT user_id, CONCAT(last_name, ' ', first_name) as user_name FROM u_user WHERE active = 10";
+$sql = "SELECT * FROM u_user WHERE active = 10";
 $stmt = $pdo->query($sql);
 
 if($stmt->rowCount() == 0){
