@@ -2,9 +2,9 @@
 
 require './../common/conf.php';
 
-$userId = $_POST['uid'];
+$ouid = $_POST['ouid'];
 
-$sql = "SELECT * FROM u_user WHERE user_id = ".$userId;
+$sql = "SELECT * FROM u_user WHERE oculus_user_id = ".$ouid;
 $stmt = $pdo->query($sql);
 
 if($stmt->rowCount() != 0) {
