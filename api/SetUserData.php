@@ -39,17 +39,17 @@ $datalist['update_date'] = 'NOW()';
 $sql = "UPDATE u_user SET ";
 
 $count = 0;
-foreach ( $userDataList as $key => $value ) {
+foreach ( $datalist as $key => $value ) {
     $sql .= $key." = ".$value;
 
     $count++;
-    if($count < count($userDataList)){
+    if($count < count($datalist)){
     	$sql .= ", ";
     }
 }
-$sql .= " WHERE user_id = ".$_POST['user_id']." LIMIT 1";
+$sql .= " WHERE user_id = ".$_POST['user_id'];
 
-//echo $sql;
+echo $sql;
 
 $stmt = $pdo->query($sql);
 $stmt = null;
