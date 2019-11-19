@@ -49,7 +49,7 @@ foreach ( $datalist as $key => $value ) {
 }
 $sql .= " WHERE user_id = ".$_POST['user_id'];
 
-echo $sql;
+//echo $sql;
 
 $stmt = $pdo->query($sql);
 $stmt = null;
