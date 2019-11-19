@@ -1,7 +1,9 @@
 <?php
 require './../common/conf.php';
 
-$sql = "SELECT * FROM u_user WHERE active = 10";
+$userId = $_POST['uid'];
+
+$sql = "SELECT * FROM u_user WHERE user_id = ".$userId;
 $stmt = $pdo->query($sql);
 
 if($stmt->rowCount() == 0){
@@ -10,7 +12,7 @@ if($stmt->rowCount() == 0){
 } else {
 	$userData = $stmt -> fetch(PDO::FETCH_ASSOC);
 
-	$sql = "SELECT * FROM u_exercise WHERE user_id = ".$userData['user_id']." ORDER BY exercise_date DESC LIMIT 50";
+	$sql = "SELECT * FROM u_exercise WHERE user_id = ".$userId." ORDER BY exercise_date DESC LIMIT 50";
 	$stmt = $pdo->query($sql);
 
 	$exerciseData = array();
