@@ -7,10 +7,10 @@ require './../common/UtilClass.php';
 $datalist = array();
 
 if(isset($_POST['oculus_user_id'])){
-	$datalist['oculus_user_id'] = $_POST['oculus_user_id'];
+	$datalist['oculus_user_id'] = UtilClass::FormatVarchar($_POST['oculus_user_id']);
 }
 if(isset($_POST['oculus_user_name'])){
-	$datalist['oculus_user_name'] = $_POST['oculus_user_name'];
+	$datalist['oculus_user_name'] = UtilClass::FormatVarchar($_POST['oculus_user_name']);
 }
 if(isset($_POST['facility_id'])){
 	$datalist['facility_id'] = $_POST['facility_id'];
