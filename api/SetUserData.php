@@ -1,19 +1,40 @@
 <?php
 
-require './../common/conf.php';
+require './../common/UtilClass.php';
 
 // 登録内容を連想配列で生成
 
-$userDataList = array(
-	'user_id' => $_POST['user_id'], 
-	'sitting_height' => $_POST['sitting_height'], 
-	'left_hand_x' => $_POST['left_hand_x'], 
-	'left_hand_y' => $_POST['left_hand_y'], 
-	'left_hand_z' => $_POST['left_hand_z'], 
-	'right_hand_x' => $_POST['right_hand_x'], 
-	'right_hand_y' => $_POST['right_hand_y'], 
-	'right_hand_z' => $_POST['right_hand_z']
-	);
+$datalist = array();
+
+if(isset($_POST['oculus_user_id'])){
+	$datalist['oculus_user_id'] = $_POST['oculus_user_id'];
+}
+if(isset($_POST['oculus_user_name'])){
+	$datalist['oculus_user_name'] = $_POST['oculus_user_name'];
+}
+if(isset($_POST['facility_id'])){
+	$datalist['facility_id'] = $_POST['facility_id'];
+}
+if(isset($_POST['mailaddress'])){
+	$datalist['mailaddress'] = UtilClass::FormatVarchar($_POST['mailaddress']);
+}
+if(isset($_POST['age'])){
+	$datalist['age'] = $_POST['age'];
+}
+if(isset($_POST['birthday'])){
+	$datalist['birthday'] = UtilClass::FormatVarchar($_POST['birthday']);
+}
+if(isset($_POST['gender'])){
+	$datalist['gender'] = $_POST['gender'];
+}
+if(isset($_POST['height'])){
+	$datalist['height'] = $_POST['height'];
+}
+if(isset($_POST['weight'])){
+	$datalist['weight'] = $_POST['weight'];
+}
+
+$datalist['update_date'] = 'NOW()';
 
 $sql = "UPDATE u_user SET ";
 
@@ -32,7 +53,7 @@ $sql .= " WHERE user_id = ".$_POST['user_id']." LIMIT 1";
 
 $stmt = $pdo->query($sql);
 $stmt = null;
-
+/*
 $datalist = array(
 	'user_id' => $_POST['user_id'], 
 	'measure_date' => 'NOW()', 
@@ -83,5 +104,5 @@ foreach ( $datalist as $key => $value ) {
 
 $stmt = $pdo->query($sql);
 $stmt = null;
-
+*/
 ?>
