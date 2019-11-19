@@ -46,9 +46,10 @@ class UtilClass
 	public static function logoutFacility($uid, $fid) {
 		global $pdo;
 	}
-
+	
+	public static function FormatVarchar($val) {
+		return '"'.$val.'"';
+	}
 }
-
-//$util = new UtilClass;
 
 ?>
