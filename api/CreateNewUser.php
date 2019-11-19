@@ -5,8 +5,8 @@ require './../common/UtilClass.php';
 // 登録内容を連想配列で生成
 
 $datalist = array(
-	'oculus_user_id' => UtilClass::FormatVarchar($_POST['ouid']), 
-	'oculus_user_name' => UtilClass::FormatVarchar($_POST['ouname'])
+	'oculus_user_id' => UtilClass::FormatVarchar($_POST['oculus_user_id']), 
+	'oculus_user_name' => UtilClass::FormatVarchar($_POST['oculus_user_name'])
 	);
 	
 if(isset($_POST['facility_id'])){

@@ -2,7 +2,7 @@
 
 require './../common/conf.php';
 
-$ouid = $_POST['ouid'];
+$ouid = $_POST['oculus_user_id'];
 
 $sql = "SELECT * FROM u_user WHERE oculus_user_id = ".$ouid;
 $stmt = $pdo->query($sql);

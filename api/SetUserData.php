@@ -47,7 +47,7 @@ foreach ( $userDataList as $key => $value ) {
     	$sql .= ", ";
     }
 }
-$sql .= " WHERE user_id = ".$_POST['uid']." LIMIT 1";
+$sql .= " WHERE user_id = ".$_POST['user_id']." LIMIT 1";
 
 //echo $sql;
 

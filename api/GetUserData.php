@@ -1,7 +1,7 @@
 <?php
 require './../common/conf.php';
 
-$userId = $_POST['uid'];
+$userId = $_POST['user_id'];
 
 $sql = "SELECT * FROM u_user WHERE user_id = ".$userId;
 $stmt = $pdo->query($sql);

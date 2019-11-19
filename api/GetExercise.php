@@ -2,7 +2,7 @@
 
 require './../common/conf.php';
 
-$userId = $_POST['uid'];
+$userId = $_POST['user_id'];
 
 $sql = "SELECT * FROM u_exercise WHERE user_id = ".$userId." ORDER BY exercise_date DESC LIMIT 20";
 $stmt = $pdo->query($sql);
