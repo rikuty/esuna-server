@@ -11,15 +11,20 @@ $manager_name = $_SESSION['manager_name'];
 // アクティブユーザー設定
 $user_id - 0;
 $active = 10;
-if(isset($_POST['user_id']) && isset($_POST['active'])){
+if(isset($_POST['facility_id']) && isset($_POST['user_id']) && isset($_POST['active'])){
+	$facility_id = $_POST['facility_id'];
 	$user_id = $_POST['user_id'];
 
-	$active = ($_POST['active'] == 'on') ? 10 : 0;
-
-	// ユーザーアクティブステータス更新
-	$sql = "UPDATE u_user SET active = ".$active." WHERE user_id = ".$user_id;
-	$stmt = $pdo->query($sql);
-	$stmt->execute();
+	// 施設のアクティブユーザーを設定
+	if($_POST['active'] == 'on'){
+		$sql = "UPDATE u_facility SET active_user_id = ".$user_id." WHERE facility_id = ".$facility_id;
+		$stmt = $pdo->query($sql);
+		$stmt->execute();
+	} else {
+		$sql = "UPDATE u_facility SET active_user_id = null WHERE facility_id = ".$facility_id;
+		$stmt = $pdo->query($sql);
+		$stmt->execute();
+	}
 }
 
 ?>
@@ -53,6 +58,7 @@ if(isset($_POST['active']))
 ?>
 <form method="POST" action="ActiveSetting.php">
 <table id="as_table">
+	<tr><td id="as_table_left">施設ID</td><td id="as_table_right"><input type="text" name="facility_id"></td></tr>
 	<tr><td id="as_table_left">ユーザーID</td><td id="as_table_right"><input type="text" name="user_id"></td></tr>
 	<tr><td id="as_table_left">アクティブ設定</td><td id="as_table_right">
 		<input type="radio" name="active" value="on" selected> アクティブ
