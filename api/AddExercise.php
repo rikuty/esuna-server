@@ -9,6 +9,16 @@ $datalist = array(
 	'exercise1_name' => UtilClass::FormatVarchar($_POST['exercise1_name']),
 	'exercise1_count' => $_POST['exercise1_count'],
 	'exercise1_success_rate' => $_POST['exercise1_success_rate'],
+	'exercise2_name' => UtilClass::FormatVarchar($_POST['exercise2_name']),
+	'exercise2_count' => $_POST['exercise2_count'],
+	'exercise2_success_rate' => $_POST['exercise2_success_rate'],
+	'exercise3_name' => UtilClass::FormatVarchar($_POST['exercise3_name']),
+	'exercise3_count' => $_POST['exercise3_count'],
+	'exercise3_success_rate' => $_POST['exercise3_success_rate'],
+	'exercise4_name' => UtilClass::FormatVarchar($_POST['exercise4_name']),
+	'exercise4_count' => $_POST['exercise4_count'],
+	'exercise4_success_rate' => $_POST['exercise4_success_rate'],
+	'body_pain' => $_POST['body_pain'],
 	'exercise_date' => 'NOW()', 
 	);
 
