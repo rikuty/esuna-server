@@ -1,6 +1,6 @@
 <?php
 
-require './../common/conf.php';
+require './../common/UtilClass.php';
 
 // 登録内容を連想配列で生成
 $datalist = array(
@@ -117,6 +117,8 @@ foreach ( $datalist as $key => $value ) {
     	$sql .= ", ";
     }
 }
+
+echo $sql;
 
 $stmt = $pdo->query($sql);
 $stmt = null;
