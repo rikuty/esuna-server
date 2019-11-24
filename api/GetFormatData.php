@@ -2,12 +2,18 @@
 
 require './../common/conf.php';
 
-$resultData = $stmt -> fetch(PDO::FETCH_ASSOC);
+$user_id = $_POST['user_id'];
 
-$sql = "SELECT * FROM u_measure WHERE user_id = ".$_POST['user_id']." ORDER BY measure_date DESC LIMIT 20";
+$sql = "SELECT * FROM u_measure WHERE user_id = ".$user_id." ORDER BY measure_date DESC LIMIT 20";
 $stmt = $pdo->query($sql);
 
-$row = $stmt -> fetch(PDO::FETCH_ASSOC);
-echo json_encode($row, JSON_UNESCAPED_UNICODE);
+$measureData = array();
+$index = 1;
+while($row = $stmt -> fetch(PDO::FETCH_ASSOC)) {
+	$measureData[$index] = $row;
+	$index++;
+}
+
+echo json_encode($measureData, JSON_UNESCAPED_UNICODE);
 
 ?>
