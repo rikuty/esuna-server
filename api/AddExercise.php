@@ -22,6 +22,10 @@ $datalist = array(
 	'exercise_date' => 'NOW()', 
 	);
 
+if(isset($_POST['group_id'])){
+	$datalist['group_id'] = $_POST['group_id'];
+}
+
 $sql = "INSERT INTO u_exercise (";
 
 $count = 0;
