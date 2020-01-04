@@ -51,6 +51,7 @@ foreach ( $datalist as $key => $value ) {
 }
 
 //echo $sql;
+//test;
 
 $stmt = $pdo->query($sql);
 $stmt = null;
