@@ -90,6 +90,10 @@ $datalist = array(
 	
 	);
 
+if(isset($_POST['cure_body_part'])){
+	$datalist['cure_body_part'] = UtilClass::FormatVarchar($_POST['cure_body_part']);
+}
+
 $sql = "INSERT INTO u_measure (";
 
 $count = 0;
